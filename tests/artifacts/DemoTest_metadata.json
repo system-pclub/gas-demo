@@ -1,0 +1,116 @@
+{
+	"compiler": {
+		"version": "0.8.15+commit.e14f2714"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "key",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "val",
+						"type": "uint256"
+					}
+				],
+				"name": "log_named_uint",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "computeSavedGas",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "gasSaved",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "setUp",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testDemo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tests/test.sol": "DemoTest"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"remix_tests.sol": {
+			"keccak256": "0xe2783cdc204cba8c72494119339f1d90f9022b15d6c718c668b7f097d8e29787",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://bb6a22e64c7f16bcaab63b1c1a1b269d5be8a6d37bdd9dec1718477ab916b18e",
+				"dweb:/ipfs/QmdkW1tT5iadBvaHMCoskhDGZKnfdg8o1D9CcoQYtdJet7"
+			]
+		},
+		"tests/UncheckedDemo.sol": {
+			"keccak256": "0xb295b12d4277f6c9f5374bea28f045bb798c19bc94e6823df9c92d03704bacb7",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://f806d9f19acf33ada8d327ec7672af8134c091d53cb7d61bb88f92958bb56e4b",
+				"dweb:/ipfs/QmTmFvdT2hMruKmXDSbCK21GeKx5rPy49ymxk4krD32U5H"
+			]
+		},
+		"tests/test.sol": {
+			"keccak256": "0xc8eaa60a949f5cde6bfc02e8daab994bcaa3a65bca691ff68b8f53402769b413",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://2fa69dbfb61a5fa0594d622b05ceb37a1c5d41b6d029275a70b6cb3c518bd749",
+				"dweb:/ipfs/QmU2LnRotEem8f73vaeWTvPLeZM1eZmwRSNoJCEwXf4DBg"
+			]
+		},
+		"tests/utils/GasMeasure.sol": {
+			"keccak256": "0x2aa784df575763ed766f5a1412001d9acca6e0d6c56e8d6cf176b54daa7f379c",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://d57e6fb04d195f61f03c7e611897645fc4141ed75c07a03e197a1de2482c80e7",
+				"dweb:/ipfs/Qmdt88SE5NeS8GHZ6tCMP3RwndiorZu5vE3R2Hcx8P3BiD"
+			]
+		}
+	},
+	"version": 1
+}

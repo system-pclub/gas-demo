@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.8.15+commit.e14f2714"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "key",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "val",
+						"type": "uint256"
+					}
+				],
+				"name": "log_named_uint",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tests/utils/GasMeasure.sol": "GasMeasure"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"tests/utils/GasMeasure.sol": {
+			"keccak256": "0x3d47ec0675618002ad85347b1c45920321e6b9b541ad293eebbe61a6ad636d31",
+			"license": "GPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://dc783ae3e085464316671291a22644e221f7149fcc3389f32a63a82f5b7533de",
+				"dweb:/ipfs/QmRnJEcwTtmfu5STnfVrr3rh4uE5788USm48AtnrfCbtuB"
+			]
+		}
+	},
+	"version": 1
+}
