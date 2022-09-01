@@ -26,7 +26,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "computeSavedGas",
+				"name": "computeIfSavedGas",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -39,8 +39,21 @@
 			},
 			{
 				"inputs": [],
-				"name": "setUp",
+				"name": "computeReturnGas",
 				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "computeUncheckedSavedGas",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "gasSaved",
+						"type": "uint256"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -87,20 +100,36 @@
 				"dweb:/ipfs/QmdkW1tT5iadBvaHMCoskhDGZKnfdg8o1D9CcoQYtdJet7"
 			]
 		},
-		"tests/UncheckedDemo.sol": {
-			"keccak256": "0xb295b12d4277f6c9f5374bea28f045bb798c19bc94e6823df9c92d03704bacb7",
+		"tests/IfDemo.sol": {
+			"keccak256": "0xac310426e7c2e667afbe71381da76bbaae96b38972009e5d63da3adf18d8f78f",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://f806d9f19acf33ada8d327ec7672af8134c091d53cb7d61bb88f92958bb56e4b",
-				"dweb:/ipfs/QmTmFvdT2hMruKmXDSbCK21GeKx5rPy49ymxk4krD32U5H"
+				"bzz-raw://271a99a694002008d3639a7b2c04ad478f6fc59d881aa1974edae1460f955e4c",
+				"dweb:/ipfs/QmWDNYfUqrWZVDJ4zKEevDfCgtMwGSatiyMHVkqkLCVWkN"
+			]
+		},
+		"tests/SimpleTest.sol": {
+			"keccak256": "0x1b068132c945cffa9b8bd8cdfda2692d3c0b0dbe3a435c74ba8e1dbc5243e964",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://7bc2725828f2062292a6cd4817156914a919ba9956e16bfb5623bad7bdaf887a",
+				"dweb:/ipfs/QmdrisiGeyu2HdfKntenbsH4ELvgDYQT45Hu79Zz4n7jcg"
+			]
+		},
+		"tests/UncheckedDemo.sol": {
+			"keccak256": "0x5f4b5165d4cdf268e02d5a86c64f4acb2c203e7853a882b41bf86acef3c49485",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://0057a4faa885366751228bf426965166cc0f55cdb39a8a1e96d2ea3797c41551",
+				"dweb:/ipfs/QmbMoGV2CJqRMBhkeKp1yAX9jRQB9FrUYPXk83kp5q38rY"
 			]
 		},
 		"tests/test.sol": {
-			"keccak256": "0xc8eaa60a949f5cde6bfc02e8daab994bcaa3a65bca691ff68b8f53402769b413",
+			"keccak256": "0xb2a683b0d5bc0495e3176b3a5b41f7232067ad5bff058f63297706cb81f3d887",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://2fa69dbfb61a5fa0594d622b05ceb37a1c5d41b6d029275a70b6cb3c518bd749",
-				"dweb:/ipfs/QmU2LnRotEem8f73vaeWTvPLeZM1eZmwRSNoJCEwXf4DBg"
+				"bzz-raw://525596d11d95ad827ec7e0bc5eecaeb1ea482f559c63199fe68ee8993eeb1459",
+				"dweb:/ipfs/QmRrsnhFPBiPC4gsi641GGKecBs1Ay4U48ZH954MYhhtGa"
 			]
 		},
 		"tests/utils/GasMeasure.sol": {

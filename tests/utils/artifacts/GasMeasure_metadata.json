@@ -53,11 +53,11 @@
 	},
 	"sources": {
 		"tests/utils/GasMeasure.sol": {
-			"keccak256": "0x3d47ec0675618002ad85347b1c45920321e6b9b541ad293eebbe61a6ad636d31",
-			"license": "GPL-3.0-or-later",
+			"keccak256": "0x2aa784df575763ed766f5a1412001d9acca6e0d6c56e8d6cf176b54daa7f379c",
+			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://dc783ae3e085464316671291a22644e221f7149fcc3389f32a63a82f5b7533de",
-				"dweb:/ipfs/QmRnJEcwTtmfu5STnfVrr3rh4uE5788USm48AtnrfCbtuB"
+				"bzz-raw://d57e6fb04d195f61f03c7e611897645fc4141ed75c07a03e197a1de2482c80e7",
+				"dweb:/ipfs/Qmdt88SE5NeS8GHZ6tCMP3RwndiorZu5vE3R2Hcx8P3BiD"
 			]
 		}
 	},
