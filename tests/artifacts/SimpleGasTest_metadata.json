@@ -1,0 +1,145 @@
+{
+	"compiler": {
+		"version": "0.8.15+commit.e14f2714"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "key",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "val",
+						"type": "uint256"
+					}
+				],
+				"name": "log_named_uint",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "computeIfSavedGas",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "gasSaved",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "computeReturnGas",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "computeUncheckedSavedGas",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "gasSaved",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testDemo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tests/SimpleGasTest.sol": "SimpleGasTest"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"remix_tests.sol": {
+			"keccak256": "0xe2783cdc204cba8c72494119339f1d90f9022b15d6c718c668b7f097d8e29787",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://bb6a22e64c7f16bcaab63b1c1a1b269d5be8a6d37bdd9dec1718477ab916b18e",
+				"dweb:/ipfs/QmdkW1tT5iadBvaHMCoskhDGZKnfdg8o1D9CcoQYtdJet7"
+			]
+		},
+		"tests/IfDemo.sol": {
+			"keccak256": "0xac310426e7c2e667afbe71381da76bbaae96b38972009e5d63da3adf18d8f78f",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://271a99a694002008d3639a7b2c04ad478f6fc59d881aa1974edae1460f955e4c",
+				"dweb:/ipfs/QmWDNYfUqrWZVDJ4zKEevDfCgtMwGSatiyMHVkqkLCVWkN"
+			]
+		},
+		"tests/ReturnDemo.sol": {
+			"keccak256": "0x0d27232c3dc7adede17e3f7b252a04449aa0edec920afaecf581cea81c355d37",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://558a63110d700836d25f5d781d850e32b9ba3a7a18c96c78fe78d5241669ef3e",
+				"dweb:/ipfs/QmS5uYg26LAB1aNdLouVkRQiEZEeHxudqzGZE7mAwKfrbd"
+			]
+		},
+		"tests/SimpleGasTest.sol": {
+			"keccak256": "0x71e64703e8158ef6e8e16648f3b09d091178a21744b4e93866d1ec7f366b5ae1",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://cb824a70c5453dd9939ca2b63af4a9c593aab183deebfb965d9595998f7f2c1d",
+				"dweb:/ipfs/QmWoNKoc26QGZQjs3muV2rTJYZQwRQrXAax2PS7GFCy3s8"
+			]
+		},
+		"tests/UncheckedDemo.sol": {
+			"keccak256": "0x5f4b5165d4cdf268e02d5a86c64f4acb2c203e7853a882b41bf86acef3c49485",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://0057a4faa885366751228bf426965166cc0f55cdb39a8a1e96d2ea3797c41551",
+				"dweb:/ipfs/QmbMoGV2CJqRMBhkeKp1yAX9jRQB9FrUYPXk83kp5q38rY"
+			]
+		},
+		"tests/utils/GasMeasure.sol": {
+			"keccak256": "0x2aa784df575763ed766f5a1412001d9acca6e0d6c56e8d6cf176b54daa7f379c",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://d57e6fb04d195f61f03c7e611897645fc4141ed75c07a03e197a1de2482c80e7",
+				"dweb:/ipfs/Qmdt88SE5NeS8GHZ6tCMP3RwndiorZu5vE3R2Hcx8P3BiD"
+			]
+		}
+	},
+	"version": 1
+}

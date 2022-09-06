@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 pragma solidity 0.8.15;
 
-contract SimpleTest {
+contract ReturnDemo {
 
     // use modifier logs_gas: 249 gas
     // transaction cost: 24739 gas

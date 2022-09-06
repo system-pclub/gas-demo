@@ -4,13 +4,14 @@ pragma solidity 0.8.15;
 import "remix_tests.sol";
 import {GasMeasure} from "./utils/GasMeasure.sol";
 import {UncheckedDemo} from "./UncheckedDemo.sol";
-import {SimpleTest} from "./SimpleTest.sol";
+import {ReturnDemo} from "./ReturnDemo.sol";
 import {IfDemo} from "./IfDemo.sol";
 
-contract DemoTest is GasMeasure {
+// gas price: $2.43
+contract SimpleGasTest is GasMeasure {
 
     UncheckedDemo uncheckedDemo = new UncheckedDemo();
-    SimpleTest simpleTest = new SimpleTest();
+    ReturnDemo returnDemo = new ReturnDemo();
     IfDemo ifDemo = new IfDemo();
 
     function testDemo() public logs_gas {
@@ -47,25 +48,25 @@ contract DemoTest is GasMeasure {
         uint256 b = 2;
 
         uint256 startGas = gasleft();
-        simpleTest.add1(a, b);
+        returnDemo.add1(a, b);
         uint256 endGas = gasleft();
         uint256 gasUsage1 = startGas - endGas;
         emit log_named_uint("gas1", gasUsage1); // 6434 gas
 
         startGas = gasleft();
-        simpleTest.add2(a, b);
+        returnDemo.add2(a, b);
         endGas = gasleft();
         uint256 gasUsage2 = startGas - endGas;
         emit log_named_uint("gas2", gasUsage2); // 1884 gas
 
         startGas = gasleft();
-        simpleTest.add3(a, b);
+        returnDemo.add3(a, b);
         endGas = gasleft();
         uint256 gasUsage3 = startGas - endGas;
         emit log_named_uint("gas3", gasUsage3); // 1862 gas
 
         startGas = gasleft();
-        simpleTest.add1(a, b);
+        returnDemo.add1(a, b);
         endGas = gasleft();
         gasUsage1 = startGas - endGas;
         emit log_named_uint("gas_1", gasUsage1); // 1919 gas
