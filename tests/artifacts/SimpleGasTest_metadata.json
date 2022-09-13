@@ -26,6 +26,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "computeCachedSavedGas",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "gasSaved",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "computeIfSavedGas",
 				"outputs": [
 					{
@@ -100,6 +113,14 @@
 				"dweb:/ipfs/QmdkW1tT5iadBvaHMCoskhDGZKnfdg8o1D9CcoQYtdJet7"
 			]
 		},
+		"tests/CachedResultDemo.sol": {
+			"keccak256": "0xca41dd0fce1f63beec0a3dad4325167c757439e81d01543189ffa566cf316263",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://2643b884b18b4b2cac58abbd4fed0618394ecefe096decff5efd379b0d4608b9",
+				"dweb:/ipfs/QmcYqnvgq12iXbX7wfrvMpY2CaeRrSjxbySCVvwEJoSCmw"
+			]
+		},
 		"tests/IfDemo.sol": {
 			"keccak256": "0xac310426e7c2e667afbe71381da76bbaae96b38972009e5d63da3adf18d8f78f",
 			"license": "AGPL-3.0-only",
@@ -117,11 +138,11 @@
 			]
 		},
 		"tests/SimpleGasTest.sol": {
-			"keccak256": "0x71e64703e8158ef6e8e16648f3b09d091178a21744b4e93866d1ec7f366b5ae1",
+			"keccak256": "0x87b74959649b227212f0edf70a7a338a4ea77183995fd9b48d594b6fef596720",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://cb824a70c5453dd9939ca2b63af4a9c593aab183deebfb965d9595998f7f2c1d",
-				"dweb:/ipfs/QmWoNKoc26QGZQjs3muV2rTJYZQwRQrXAax2PS7GFCy3s8"
+				"bzz-raw://d2e96374085eb6de3714f6f0e3b07c1e2e5e8ad04b41a4e48326cd2b142e2e17",
+				"dweb:/ipfs/QmQboZsAQzehVNDHw2YRqdn58Q94GEvPJimK67qxFuiXT1"
 			]
 		},
 		"tests/UncheckedDemo.sol": {

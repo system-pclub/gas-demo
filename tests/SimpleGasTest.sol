@@ -6,13 +6,16 @@ import {GasMeasure} from "./utils/GasMeasure.sol";
 import {UncheckedDemo} from "./UncheckedDemo.sol";
 import {ReturnDemo} from "./ReturnDemo.sol";
 import {IfDemo} from "./IfDemo.sol";
+import {CachedResultDemo} from "./CachedResultDemo.sol";
 
-// gas price: $2.43
+// 1 eth: $1,594.61 (10^9 gwei)
+// 1 gas: 21.39 gwei (about $3.4*10^-5)
 contract SimpleGasTest is GasMeasure {
 
     UncheckedDemo uncheckedDemo = new UncheckedDemo();
     ReturnDemo returnDemo = new ReturnDemo();
     IfDemo ifDemo = new IfDemo();
+    CachedResultDemo cachedResultDemo = new CachedResultDemo();
 
     function testDemo() public logs_gas {
         uint a = 1;
@@ -92,5 +95,29 @@ contract SimpleGasTest is GasMeasure {
         endGas = gasleft();
         gasUsage1 = startGas - endGas;
         return gasUsage1 - gasUsage2; // 25 gas
+     }
+
+     function computeCachedSavedGas() public returns(uint gasSaved) {
+        uint256 id = 0;
+        cachedResultDemo.setAddress(address(0xBEEF)); 
+
+        uint256 startGas = gasleft();
+        cachedResultDemo.burn(id);
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+
+        cachedResultDemo.setAddress(address(0xBEEF));
+        startGas = gasleft();
+        cachedResultDemo.burnUseCached(id);
+        endGas = gasleft();
+        uint256 gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasSaved", gasUsage1 - gasUsage2); // 24073 gas
+
+        cachedResultDemo.setAddress(address(0xBEEF));
+        startGas = gasleft();
+        cachedResultDemo.burn(id);
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        return gasUsage1 - gasUsage2; // 170 gas
      }
 }
