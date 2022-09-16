@@ -59,6 +59,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "computeSimplicationSavedGas",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "gasSaved",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "computeUncheckedSavedGas",
 				"outputs": [
 					{
@@ -113,12 +126,28 @@
 				"dweb:/ipfs/QmdkW1tT5iadBvaHMCoskhDGZKnfdg8o1D9CcoQYtdJet7"
 			]
 		},
+		"tests/BeforeTokenDemo.sol": {
+			"keccak256": "0x878a311c77709d9587189f29088c476a04ce520e9ea0866342e34232850a1442",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://515a965b74cca73482c5b4f0e88726680a9fb3dbc16c25ddb31c21db3cdf0b3b",
+				"dweb:/ipfs/QmPGyzuczFP5NFue9B7ovghq96oBm79gzZuJ5RpGYo4GnJ"
+			]
+		},
 		"tests/CachedResultDemo.sol": {
 			"keccak256": "0xca41dd0fce1f63beec0a3dad4325167c757439e81d01543189ffa566cf316263",
 			"license": "AGPL-3.0-only",
 			"urls": [
 				"bzz-raw://2643b884b18b4b2cac58abbd4fed0618394ecefe096decff5efd379b0d4608b9",
 				"dweb:/ipfs/QmcYqnvgq12iXbX7wfrvMpY2CaeRrSjxbySCVvwEJoSCmw"
+			]
+		},
+		"tests/ERC20DetailedDemo.sol": {
+			"keccak256": "0xdb3c8b640d7fdb0458b324480ad5033159005baf05105761418fade3e687c808",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://c32635c9fd3caf208d520d736f4909119560bce7a4b354106ec298e17128840e",
+				"dweb:/ipfs/Qmar4DKEvWmiZbCGijGxVZ8hpngV5fNertNfStiDjVcU2i"
 			]
 		},
 		"tests/IfDemo.sol": {
@@ -138,11 +167,19 @@
 			]
 		},
 		"tests/SimpleGasTest.sol": {
-			"keccak256": "0x87b74959649b227212f0edf70a7a338a4ea77183995fd9b48d594b6fef596720",
+			"keccak256": "0xc2aa3ef4f1b81a8a027f4309160f9bdebd6b5a4015970f504faa25bf00bcfb5b",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://d2e96374085eb6de3714f6f0e3b07c1e2e5e8ad04b41a4e48326cd2b142e2e17",
-				"dweb:/ipfs/QmQboZsAQzehVNDHw2YRqdn58Q94GEvPJimK67qxFuiXT1"
+				"bzz-raw://50f319bc79171a5a31001591be8dae4377182c82b075fb8b0076fd77f586adf9",
+				"dweb:/ipfs/QmdP3wde7mm1pqsEu2eGmHZj7VTAEfNZhkZRfpYzhRSzdg"
+			]
+		},
+		"tests/SimpleTokenDemo.sol": {
+			"keccak256": "0x1a8703c5fd80a7f0ed68018449983b04256c8a5224580a9d46251afd9a57f05d",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://53bae0c6b7b043ad539300666970c98565743753131aaae2c554b28242a7c653",
+				"dweb:/ipfs/QmVhfWBaTgR5yAc85SuJCWgEMTMHB5mKze1cYQtkQ26aYj"
 			]
 		},
 		"tests/UncheckedDemo.sol": {

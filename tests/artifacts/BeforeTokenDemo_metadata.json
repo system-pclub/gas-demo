@@ -1,0 +1,190 @@
+{
+	"compiler": {
+		"version": "0.8.15+commit.e14f2714"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "DECIMALS",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "INITIAL_SUPPLY",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "checkedMint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "uncheckedMint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"constructor": {
+					"details": "Constructor that gives msg.sender all of existing tokens."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tests/BeforeTokenDemo.sol": "BeforeTokenDemo"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"tests/BeforeTokenDemo.sol": {
+			"keccak256": "0x878a311c77709d9587189f29088c476a04ce520e9ea0866342e34232850a1442",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://515a965b74cca73482c5b4f0e88726680a9fb3dbc16c25ddb31c21db3cdf0b3b",
+				"dweb:/ipfs/QmPGyzuczFP5NFue9B7ovghq96oBm79gzZuJ5RpGYo4GnJ"
+			]
+		},
+		"tests/ERC20DetailedDemo.sol": {
+			"keccak256": "0x24edfd894619104e107710200bd05997ede2cf7823f5a6a050337348d2d1fd7a",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://f0e608de46e7933889488fa7a93b59d48136f0d62d2941264927353f238be06c",
+				"dweb:/ipfs/QmZy6femasVyBQKRDCzXfEpdd6mSjRHyiitoxDCQ61bs4q"
+			]
+		},
+		"tests/UncheckedDemo.sol": {
+			"keccak256": "0x5f4b5165d4cdf268e02d5a86c64f4acb2c203e7853a882b41bf86acef3c49485",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://0057a4faa885366751228bf426965166cc0f55cdb39a8a1e96d2ea3797c41551",
+				"dweb:/ipfs/QmbMoGV2CJqRMBhkeKp1yAX9jRQB9FrUYPXk83kp5q38rY"
+			]
+		}
+	},
+	"version": 1
+}

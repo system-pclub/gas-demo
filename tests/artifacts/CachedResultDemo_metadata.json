@@ -31,6 +31,25 @@
 				"type": "event"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "key",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "val",
+						"type": "uint256"
+					}
+				],
+				"name": "log_named_uint",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -125,6 +144,13 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "setUp",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -155,11 +181,19 @@
 	},
 	"sources": {
 		"tests/CachedResultDemo.sol": {
-			"keccak256": "0xca41dd0fce1f63beec0a3dad4325167c757439e81d01543189ffa566cf316263",
+			"keccak256": "0xff90fd658be07d4be5336921147262bd747ab12d9641eefebe3d0cabcc67eacb",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://2643b884b18b4b2cac58abbd4fed0618394ecefe096decff5efd379b0d4608b9",
-				"dweb:/ipfs/QmcYqnvgq12iXbX7wfrvMpY2CaeRrSjxbySCVvwEJoSCmw"
+				"bzz-raw://983557e4da59c0e69b15095c6f8ad6012d803264c33bdf93d33baf2534c34871",
+				"dweb:/ipfs/QmZwqqrEBTgxcg21svxttdZCfm3HV9Zwme7gxYif9K7LKa"
+			]
+		},
+		"tests/utils/GasMeasure.sol": {
+			"keccak256": "0x2aa784df575763ed766f5a1412001d9acca6e0d6c56e8d6cf176b54daa7f379c",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://d57e6fb04d195f61f03c7e611897645fc4141ed75c07a03e197a1de2482c80e7",
+				"dweb:/ipfs/Qmdt88SE5NeS8GHZ6tCMP3RwndiorZu5vE3R2Hcx8P3BiD"
 			]
 		}
 	},
