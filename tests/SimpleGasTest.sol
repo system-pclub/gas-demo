@@ -9,6 +9,7 @@ import {IfDemo} from "./IfDemo.sol";
 import {CachedResultDemo} from "./CachedResultDemo.sol";
 import {BeforeTokenDemo} from "./BeforeTokenDemo.sol";
 import {SimpleTokenDemo} from "./SimpleTokenDemo.sol";
+import {Secondary, Secondary2} from "./SLOADDemo.sol";
 
 // 1 eth: $1,594.61 (10^9 gwei)
 // 1 gas: 21.39 gwei (about $3.4*10^-5)
@@ -137,5 +138,21 @@ contract SimpleGasTest is GasMeasure {
         uint256 gasUsage2 = startGas - endGas;
         emit log_named_uint("gasUsage2", gasUsage2);
         return gasUsage1 - gasUsage2; // 121991 gas
+     }
+
+     function computeSloadSavedGas() public returns(uint gasSaved) {
+
+        uint256 startGas = gasleft();
+        Secondary secondary = new Secondary();
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1);
+
+        startGas = gasleft();
+        Secondary2 secondary2 = new Secondary2();
+        endGas = gasleft();
+        uint256 gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2);
+        return gasUsage1 - gasUsage2; // 6639 gas
      }
 }

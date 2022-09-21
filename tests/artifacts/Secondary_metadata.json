@@ -1,0 +1,86 @@
+{
+	"compiler": {
+		"version": "0.8.15+commit.e14f2714"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					}
+				],
+				"name": "PrimaryTransferred",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					}
+				],
+				"name": "transferPrimary",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"events": {
+				"PrimaryTransferred(address)": {
+					"details": "Emitted when the primary contract changes."
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"constructor": {
+					"details": "Sets the primary account to the one that is creating the Secondary contract."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tests/SLOADDemo.sol": "Secondary"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"tests/SLOADDemo.sol": {
+			"keccak256": "0x70cb8b950a08048aaf88d6666478367e444e9a849bf5aa1e4ba8c055738c4e84",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://4e425b70759b2d33a5caa6c45da70d20881fa2d712e2e32c4ecddd8bd47f6a6d",
+				"dweb:/ipfs/QmPBJpyvNpQu6Et5JScZgsp6HcKGsAhUhhu6XzKSQ82mbK"
+			]
+		}
+	},
+	"version": 1
+}

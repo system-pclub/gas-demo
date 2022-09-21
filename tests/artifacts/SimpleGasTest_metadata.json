@@ -72,6 +72,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "computeSloadSavedGas",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "gasSaved",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "computeUncheckedSavedGas",
 				"outputs": [
 					{
@@ -166,12 +179,20 @@
 				"dweb:/ipfs/QmS5uYg26LAB1aNdLouVkRQiEZEeHxudqzGZE7mAwKfrbd"
 			]
 		},
-		"tests/SimpleGasTest.sol": {
-			"keccak256": "0xc2aa3ef4f1b81a8a027f4309160f9bdebd6b5a4015970f504faa25bf00bcfb5b",
+		"tests/SLOADDemo.sol": {
+			"keccak256": "0x70cb8b950a08048aaf88d6666478367e444e9a849bf5aa1e4ba8c055738c4e84",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://50f319bc79171a5a31001591be8dae4377182c82b075fb8b0076fd77f586adf9",
-				"dweb:/ipfs/QmdP3wde7mm1pqsEu2eGmHZj7VTAEfNZhkZRfpYzhRSzdg"
+				"bzz-raw://4e425b70759b2d33a5caa6c45da70d20881fa2d712e2e32c4ecddd8bd47f6a6d",
+				"dweb:/ipfs/QmPBJpyvNpQu6Et5JScZgsp6HcKGsAhUhhu6XzKSQ82mbK"
+			]
+		},
+		"tests/SimpleGasTest.sol": {
+			"keccak256": "0xc5118ddb794c027e6cb04bbf7242dde3f00531fa8c7fee12b87c099b7b7fffd3",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://3c134f301c64f8a433a553d0cbd76b4e33b2fe4439a93961db4a0cb3e532abbd",
+				"dweb:/ipfs/QmPUGQMzbGexJKFEjiVFr55HYJWDiueWiVCC4zqUcdRUvq"
 			]
 		},
 		"tests/SimpleTokenDemo.sol": {
