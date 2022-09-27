@@ -10,6 +10,7 @@ import {CachedResultDemo} from "./CachedResultDemo.sol";
 import {BeforeTokenDemo} from "./BeforeTokenDemo.sol";
 import {SimpleTokenDemo} from "./SimpleTokenDemo.sol";
 import {Secondary, Secondary2} from "./SLOADDemo.sol";
+import {ReentrancyGuard1, ReentrancyGuard2} from "./BoolDemo.sol";
 
 // 1 eth: $1,594.61 (10^9 gwei)
 // 1 gas: 21.39 gwei (about $3.4*10^-5)
@@ -154,5 +155,22 @@ contract SimpleGasTest is GasMeasure {
         uint256 gasUsage2 = startGas - endGas;
         emit log_named_uint("gasUsage2", gasUsage2);
         return gasUsage1 - gasUsage2; // 6639 gas
+     }
+
+     function computBoolSavedGas() public returns(uint gasSaved) {
+        ReentrancyGuard1 reentrancyGuard1 = new ReentrancyGuard1();
+        uint256 startGas = gasleft();
+        reentrancyGuard1.test();
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1);
+
+        ReentrancyGuard2 reentrancyGuard2 = new ReentrancyGuard2();
+        startGas = gasleft();
+        reentrancyGuard2.test();
+        endGas = gasleft();
+        uint256 gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2);
+        return gasUsage1 - gasUsage2; // 20242 gas
      }
 }

@@ -13,10 +13,10 @@ contract ERC20DetailedDemo {
      * these values are immutable: they can only be set once during
      * construction.
      */
-    constructor (string memory name, string memory symbol, uint8 decimals) public {
+    constructor (string memory name, string memory symbol, uint8 decimal) {
         _name = name;
         _symbol = symbol;
-        _decimals = decimals;
+        _decimals = decimal;
     }
 
     function decimals() public view returns (uint8) {

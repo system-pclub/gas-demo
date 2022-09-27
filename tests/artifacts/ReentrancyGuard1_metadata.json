@@ -1,0 +1,64 @@
+{
+	"compiler": {
+		"version": "0.8.15+commit.e14f2714"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "test",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"stateVariables": {
+				"reentrancyLock": {
+					"details": "We use a single lock for the whole contract."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tests/BoolDemo.sol": "ReentrancyGuard1"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"tests/BoolDemo.sol": {
+			"keccak256": "0x7ca406806321cc2ac3b60b02263bac5cea6ef81845a19e603604c354612ba50c",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://ce1bdd11e8c3cd6762b34e3fc31eba321776c572b5613ec5e5ee9bc8193d9df7",
+				"dweb:/ipfs/QmUPMv2DiSmwU62MyuGdGRcgbDRQW1LXJGz2PwQAFxeoT1"
+			]
+		}
+	},
+	"version": 1
+}

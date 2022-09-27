@@ -26,6 +26,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "computBoolSavedGas",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "gasSaved",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "computeCachedSavedGas",
 				"outputs": [
 					{
@@ -140,11 +153,19 @@
 			]
 		},
 		"tests/BeforeTokenDemo.sol": {
-			"keccak256": "0x878a311c77709d9587189f29088c476a04ce520e9ea0866342e34232850a1442",
+			"keccak256": "0xda8603bfed99be0ab57212f00945fd6f0b45748c87c4e5a5475d4c83d483d179",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://515a965b74cca73482c5b4f0e88726680a9fb3dbc16c25ddb31c21db3cdf0b3b",
-				"dweb:/ipfs/QmPGyzuczFP5NFue9B7ovghq96oBm79gzZuJ5RpGYo4GnJ"
+				"bzz-raw://3e19e6e1b6f9631cdd7a6136d93777a0a3f3640373d2f88dda6451f708fff7a3",
+				"dweb:/ipfs/QmPqMWb8wqcfxBvUMwmJaNq6x2gvdSzPNVL8SwyFtocuWf"
+			]
+		},
+		"tests/BoolDemo.sol": {
+			"keccak256": "0x7ca406806321cc2ac3b60b02263bac5cea6ef81845a19e603604c354612ba50c",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://ce1bdd11e8c3cd6762b34e3fc31eba321776c572b5613ec5e5ee9bc8193d9df7",
+				"dweb:/ipfs/QmUPMv2DiSmwU62MyuGdGRcgbDRQW1LXJGz2PwQAFxeoT1"
 			]
 		},
 		"tests/CachedResultDemo.sol": {
@@ -156,11 +177,11 @@
 			]
 		},
 		"tests/ERC20DetailedDemo.sol": {
-			"keccak256": "0xdb3c8b640d7fdb0458b324480ad5033159005baf05105761418fade3e687c808",
+			"keccak256": "0x0139fba243756b26b30d79fcae8a56a7d94b4b66243b2281a66d1dd8cef89d6d",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://c32635c9fd3caf208d520d736f4909119560bce7a4b354106ec298e17128840e",
-				"dweb:/ipfs/Qmar4DKEvWmiZbCGijGxVZ8hpngV5fNertNfStiDjVcU2i"
+				"bzz-raw://03e501b428b2fbd1af3fb0ff3a663840564ff8fd94f4ae1e974a914559551bca",
+				"dweb:/ipfs/QmUvP5sLRA6mLAM1ucBtKDBjcS2h87AEM59dVsFxNuRbVJ"
 			]
 		},
 		"tests/IfDemo.sol": {
@@ -188,19 +209,19 @@
 			]
 		},
 		"tests/SimpleGasTest.sol": {
-			"keccak256": "0xc5118ddb794c027e6cb04bbf7242dde3f00531fa8c7fee12b87c099b7b7fffd3",
+			"keccak256": "0x818de41f29152f9a02b05af91cee288dceacb236357b32622f4705c1f64a41dc",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://3c134f301c64f8a433a553d0cbd76b4e33b2fe4439a93961db4a0cb3e532abbd",
-				"dweb:/ipfs/QmPUGQMzbGexJKFEjiVFr55HYJWDiueWiVCC4zqUcdRUvq"
+				"bzz-raw://706bd357cf163105571c8bf89be060955c81ab557e2e0c58659dcea5e6df7ead",
+				"dweb:/ipfs/QmRLCL3HzwAexxeuihv3DYVj17AVknCMAqqdt4BWv8Tha9"
 			]
 		},
 		"tests/SimpleTokenDemo.sol": {
-			"keccak256": "0x1a8703c5fd80a7f0ed68018449983b04256c8a5224580a9d46251afd9a57f05d",
+			"keccak256": "0x1f8bdddce706a3f711c79e9e1c18f380fd611e295da29ec130d182b823002cd2",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://53bae0c6b7b043ad539300666970c98565743753131aaae2c554b28242a7c653",
-				"dweb:/ipfs/QmVhfWBaTgR5yAc85SuJCWgEMTMHB5mKze1cYQtkQ26aYj"
+				"bzz-raw://62619aa71fb28e2ad5458b91d158467d3400bde0c87861484cd6eec40ed35bd1",
+				"dweb:/ipfs/QmdfQFqyFCNJjbgBciqjQYuB28QsJSCyEwFWu4mdZqqGbw"
 			]
 		},
 		"tests/UncheckedDemo.sol": {

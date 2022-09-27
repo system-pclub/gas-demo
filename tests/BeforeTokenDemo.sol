@@ -12,7 +12,7 @@ contract BeforeTokenDemo is UncheckedDemo, ERC20DetailedDemo {
     /**
      * @dev Constructor that gives msg.sender all of existing tokens.
      */
-    constructor () public ERC20DetailedDemo("SimpleToken", "SIM", DECIMALS) {
+    constructor () ERC20DetailedDemo("SimpleToken", "SIM", DECIMALS) {
         uncheckedMint(msg.sender, INITIAL_SUPPLY);
     }
 }

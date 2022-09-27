@@ -100,6 +100,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "decimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "totalSupply",
 				"outputs": [
 					{
@@ -162,19 +175,19 @@
 	},
 	"sources": {
 		"tests/BeforeTokenDemo.sol": {
-			"keccak256": "0x878a311c77709d9587189f29088c476a04ce520e9ea0866342e34232850a1442",
+			"keccak256": "0xda8603bfed99be0ab57212f00945fd6f0b45748c87c4e5a5475d4c83d483d179",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://515a965b74cca73482c5b4f0e88726680a9fb3dbc16c25ddb31c21db3cdf0b3b",
-				"dweb:/ipfs/QmPGyzuczFP5NFue9B7ovghq96oBm79gzZuJ5RpGYo4GnJ"
+				"bzz-raw://3e19e6e1b6f9631cdd7a6136d93777a0a3f3640373d2f88dda6451f708fff7a3",
+				"dweb:/ipfs/QmPqMWb8wqcfxBvUMwmJaNq6x2gvdSzPNVL8SwyFtocuWf"
 			]
 		},
 		"tests/ERC20DetailedDemo.sol": {
-			"keccak256": "0x24edfd894619104e107710200bd05997ede2cf7823f5a6a050337348d2d1fd7a",
+			"keccak256": "0x0139fba243756b26b30d79fcae8a56a7d94b4b66243b2281a66d1dd8cef89d6d",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://f0e608de46e7933889488fa7a93b59d48136f0d62d2941264927353f238be06c",
-				"dweb:/ipfs/QmZy6femasVyBQKRDCzXfEpdd6mSjRHyiitoxDCQ61bs4q"
+				"bzz-raw://03e501b428b2fbd1af3fb0ff3a663840564ff8fd94f4ae1e974a914559551bca",
+				"dweb:/ipfs/QmUvP5sLRA6mLAM1ucBtKDBjcS2h87AEM59dVsFxNuRbVJ"
 			]
 		},
 		"tests/UncheckedDemo.sol": {

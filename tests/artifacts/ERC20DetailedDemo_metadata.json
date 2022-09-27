@@ -19,7 +19,7 @@
 					},
 					{
 						"internalType": "uint8",
-						"name": "decimals",
+						"name": "decimal",
 						"type": "uint8"
 					}
 				],
@@ -72,11 +72,11 @@
 	},
 	"sources": {
 		"tests/ERC20DetailedDemo.sol": {
-			"keccak256": "0xdb3c8b640d7fdb0458b324480ad5033159005baf05105761418fade3e687c808",
+			"keccak256": "0x0139fba243756b26b30d79fcae8a56a7d94b4b66243b2281a66d1dd8cef89d6d",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://c32635c9fd3caf208d520d736f4909119560bce7a4b354106ec298e17128840e",
-				"dweb:/ipfs/Qmar4DKEvWmiZbCGijGxVZ8hpngV5fNertNfStiDjVcU2i"
+				"bzz-raw://03e501b428b2fbd1af3fb0ff3a663840564ff8fd94f4ae1e974a914559551bca",
+				"dweb:/ipfs/QmUvP5sLRA6mLAM1ucBtKDBjcS2h87AEM59dVsFxNuRbVJ"
 			]
 		}
 	},
