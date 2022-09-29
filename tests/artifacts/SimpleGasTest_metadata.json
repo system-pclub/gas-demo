@@ -85,7 +85,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "computeSimplicationSavedGas",
+				"name": "computeSSTORESavedGas",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -165,14 +165,6 @@
 				"dweb:/ipfs/QmdkW1tT5iadBvaHMCoskhDGZKnfdg8o1D9CcoQYtdJet7"
 			]
 		},
-		"tests/BeforeTokenDemo.sol": {
-			"keccak256": "0xda8603bfed99be0ab57212f00945fd6f0b45748c87c4e5a5475d4c83d483d179",
-			"license": "AGPL-3.0-only",
-			"urls": [
-				"bzz-raw://3e19e6e1b6f9631cdd7a6136d93777a0a3f3640373d2f88dda6451f708fff7a3",
-				"dweb:/ipfs/QmPqMWb8wqcfxBvUMwmJaNq6x2gvdSzPNVL8SwyFtocuWf"
-			]
-		},
 		"tests/BoolDemo.sol": {
 			"keccak256": "0x7ca406806321cc2ac3b60b02263bac5cea6ef81845a19e603604c354612ba50c",
 			"license": "AGPL-3.0-only",
@@ -213,6 +205,14 @@
 				"dweb:/ipfs/QmWDNYfUqrWZVDJ4zKEevDfCgtMwGSatiyMHVkqkLCVWkN"
 			]
 		},
+		"tests/RemoveSLOADDemo.sol": {
+			"keccak256": "0xfbaef79d91a14a8481e2b37ee6d1e180147eb079a2b355dec2079abf8bfad991",
+			"license": "AGPL-3.0-only",
+			"urls": [
+				"bzz-raw://a1c818222597e2e9fb8be03dfff683c6c8e79b30a51e3aa06cfa383fd8099b68",
+				"dweb:/ipfs/QmV56YvJJZEdyT8NRHyupUzEeFXwsoVqpMLK12YQLyZR5V"
+			]
+		},
 		"tests/ReturnDemo.sol": {
 			"keccak256": "0x0d27232c3dc7adede17e3f7b252a04449aa0edec920afaecf581cea81c355d37",
 			"license": "AGPL-3.0-only",
@@ -221,7 +221,7 @@
 				"dweb:/ipfs/QmS5uYg26LAB1aNdLouVkRQiEZEeHxudqzGZE7mAwKfrbd"
 			]
 		},
-		"tests/SLOADDemo.sol": {
+		"tests/SSTOREDemo.sol": {
 			"keccak256": "0x70cb8b950a08048aaf88d6666478367e444e9a849bf5aa1e4ba8c055738c4e84",
 			"license": "AGPL-3.0-only",
 			"urls": [
@@ -230,19 +230,11 @@
 			]
 		},
 		"tests/SimpleGasTest.sol": {
-			"keccak256": "0x4ac4d1f319ea2b60fa4f1a72346cd573051763f75713ea1878721409101c1316",
+			"keccak256": "0x696267e48b6b35ae9b061b4a25d9ec8267dc16db35ea2fefb99b8679b17bc1a0",
 			"license": "AGPL-3.0-only",
 			"urls": [
-				"bzz-raw://fab4c04c675292ef1f951bde7b52bf46904540ba91caf91a7f0e4db00255da57",
-				"dweb:/ipfs/QmZ456YWb7LVHK5FkWam2Z6HwVytv8FHkVQhe4WkEjGhRv"
-			]
-		},
-		"tests/SimpleTokenDemo.sol": {
-			"keccak256": "0x1f8bdddce706a3f711c79e9e1c18f380fd611e295da29ec130d182b823002cd2",
-			"license": "AGPL-3.0-only",
-			"urls": [
-				"bzz-raw://62619aa71fb28e2ad5458b91d158467d3400bde0c87861484cd6eec40ed35bd1",
-				"dweb:/ipfs/QmdfQFqyFCNJjbgBciqjQYuB28QsJSCyEwFWu4mdZqqGbw"
+				"bzz-raw://0e1a419d48553c2f901b9859adfb43ef161fff1262e8f0eb7499d9fb7f99dbc4",
+				"dweb:/ipfs/QmbTHo9E3LSAvdEKW6qv8cDYStNpBK34J8kqEBkhHJBeVQ"
 			]
 		},
 		"tests/UncheckedDemo.sol": {

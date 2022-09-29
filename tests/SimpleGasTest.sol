@@ -7,10 +7,9 @@ import {UncheckedDemo} from "./UncheckedDemo.sol";
 import {ReturnDemo} from "./ReturnDemo.sol";
 import {IfDemo} from "./IfDemo.sol";
 import {CachedResultDemo} from "./CachedResultDemo.sol";
-import {BeforeTokenDemo} from "./BeforeTokenDemo.sol";
-import {SimpleTokenDemo} from "./SimpleTokenDemo.sol";
-import {Secondary, Secondary2} from "./SLOADDemo.sol";
-import {ReentrancyGuard1, ReentrancyGuard2} from "./BoolDemo.sol";
+import "./SSTOREDemo.sol";
+import "./RemoveSLOADDemo.sol";
+import "./BoolDemo.sol";
 import "./ExtcodeDemo.sol";
 
 // 1 eth: $1,594.61 (10^9 gwei)
@@ -126,7 +125,7 @@ contract SimpleGasTest is GasMeasure {
         return gasUsage1 - gasUsage2; // 170 gas
      }
 
-     function computeSimplicationSavedGas() public returns(uint gasSaved) {
+     function computeSloadSavedGas() public returns(uint gasSaved) {
 
         uint256 startGas = gasleft();
         BeforeTokenDemo beforeDemo = new BeforeTokenDemo();
@@ -143,7 +142,7 @@ contract SimpleGasTest is GasMeasure {
         return gasUsage1 - gasUsage2; // 121991 gas
      }
 
-     function computeSloadSavedGas() public returns(uint gasSaved) {
+     function computeSSTORESavedGas() public returns(uint gasSaved) {
 
         uint256 startGas = gasleft();
         Secondary secondary = new Secondary();
