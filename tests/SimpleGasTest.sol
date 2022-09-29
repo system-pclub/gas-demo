@@ -11,6 +11,7 @@ import {BeforeTokenDemo} from "./BeforeTokenDemo.sol";
 import {SimpleTokenDemo} from "./SimpleTokenDemo.sol";
 import {Secondary, Secondary2} from "./SLOADDemo.sol";
 import {ReentrancyGuard1, ReentrancyGuard2} from "./BoolDemo.sol";
+import "./ExtcodeDemo.sol";
 
 // 1 eth: $1,594.61 (10^9 gwei)
 // 1 gas: 21.39 gwei (about $3.4*10^-5)
@@ -138,6 +139,7 @@ contract SimpleGasTest is GasMeasure {
         endGas = gasleft();
         uint256 gasUsage2 = startGas - endGas;
         emit log_named_uint("gasUsage2", gasUsage2);
+
         return gasUsage1 - gasUsage2; // 121991 gas
      }
 
@@ -147,14 +149,24 @@ contract SimpleGasTest is GasMeasure {
         Secondary secondary = new Secondary();
         uint256 endGas = gasleft();
         uint256 gasUsage1 = startGas - endGas;
-        emit log_named_uint("gasUsage1", gasUsage1);
 
         startGas = gasleft();
         Secondary2 secondary2 = new Secondary2();
         endGas = gasleft();
         uint256 gasUsage2 = startGas - endGas;
-        emit log_named_uint("gasUsage2", gasUsage2);
-        return gasUsage1 - gasUsage2; // 6639 gas
+        emit log_named_uint("gasSaved1", gasUsage1 - gasUsage2); // 6639 gas
+
+        startGas = gasleft();
+        secondary.transferPrimary(address(0xBEEF));
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+
+        startGas = gasleft();
+        secondary2.transferPrimary(address(0xBEEF));
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas;
+        
+        return gasUsage1 - gasUsage2; // 113 gas
      }
 
      function computBoolSavedGas() public returns(uint gasSaved) {
@@ -171,6 +183,26 @@ contract SimpleGasTest is GasMeasure {
         endGas = gasleft();
         uint256 gasUsage2 = startGas - endGas;
         emit log_named_uint("gasUsage2", gasUsage2);
+
         return gasUsage1 - gasUsage2; // 20242 gas
+     }
+
+     function computExtcodehashSavedGas() public returns(uint gasSaved) {
+        uint256 startGas = gasleft();
+        Address0.isContract(address(0xBEEF));
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+
+        startGas = gasleft();
+        Address0.isContract(address(0xBEEF));
+        endGas = gasleft();
+        uint256 gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasDiff", gasUsage1 - gasUsage2); // 2503 gas
+
+        startGas = gasleft();
+        Address1.isContract(address(0xBEEF));
+        endGas = gasleft();
+        uint256 gasUsage3 = startGas - endGas;
+        return gasUsage3 - gasUsage2; //  48 gas
      }
 }
