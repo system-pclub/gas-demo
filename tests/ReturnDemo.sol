@@ -22,7 +22,7 @@ contract ReturnDemo {
         }
 
         c = a + b;
-        return c;
+        // return c;
     }
 
     // use modifier logs_gas: 236 gas

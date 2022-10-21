@@ -11,6 +11,9 @@ import "./SSTOREDemo.sol";
 import "./RemoveSLOADDemo.sol";
 import "./BoolDemo.sol";
 import "./ExtcodeDemo.sol";
+import "./BoolIntLoadDemo.sol";
+import "./ReturnCompositeDemo.sol";
+
 
 // 1 eth: $1,594.61 (10^9 gwei)
 // 1 gas: 21.39 gwei (about $3.4*10^-5)
@@ -126,20 +129,31 @@ contract SimpleGasTest is GasMeasure {
      }
 
      function computeSloadSavedGas() public returns(uint gasSaved) {
-
         uint256 startGas = gasleft();
-        BeforeTokenDemo beforeDemo = new BeforeTokenDemo();
+        SimpleTokenDemo simpleDemo = new SimpleTokenDemo();
         uint256 endGas = gasleft();
+        uint256 gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2);
+
+        startGas = gasleft();
+        simpleDemo = new SimpleTokenDemo();
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2);
+
+        startGas = gasleft();
+        BeforeTokenDemo beforeDemo = new BeforeTokenDemo();
+        endGas = gasleft();
         uint256 gasUsage1 = startGas - endGas;
         emit log_named_uint("gasUsage1", gasUsage1);
 
         startGas = gasleft();
-        SimpleTokenDemo simpleDemo = new SimpleTokenDemo();
+        beforeDemo = new BeforeTokenDemo();
         endGas = gasleft();
-        uint256 gasUsage2 = startGas - endGas;
-        emit log_named_uint("gasUsage2", gasUsage2);
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1);
 
-        return gasUsage1 - gasUsage2; // 121991 gas
+        return gasUsage1 - gasUsage2; // 121589 gas
      }
 
      function computeSSTORESavedGas() public returns(uint gasSaved) {
@@ -169,21 +183,21 @@ contract SimpleGasTest is GasMeasure {
      }
 
      function computBoolSavedGas() public returns(uint gasSaved) {
-        ReentrancyGuard1 reentrancyGuard1 = new ReentrancyGuard1();
-        uint256 startGas = gasleft();
-        reentrancyGuard1.test();
-        uint256 endGas = gasleft();
-        uint256 gasUsage1 = startGas - endGas;
-        emit log_named_uint("gasUsage1", gasUsage1);
-
         ReentrancyGuard2 reentrancyGuard2 = new ReentrancyGuard2();
-        startGas = gasleft();
+        uint256 startGas = gasleft();
         reentrancyGuard2.test();
-        endGas = gasleft();
+        uint256 endGas = gasleft();
         uint256 gasUsage2 = startGas - endGas;
         emit log_named_uint("gasUsage2", gasUsage2);
 
-        return gasUsage1 - gasUsage2; // 20242 gas
+        ReentrancyGuard1 reentrancyGuard1 = new ReentrancyGuard1();
+        startGas = gasleft();
+        reentrancyGuard1.test();
+        endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1);
+
+        return gasUsage1 - gasUsage2; // 20236 gas
      }
 
      function computExtcodehashSavedGas() public returns(uint gasSaved) {
@@ -203,5 +217,117 @@ contract SimpleGasTest is GasMeasure {
         endGas = gasleft();
         uint256 gasUsage3 = startGas - endGas;
         return gasUsage3 - gasUsage2; //  48 gas
+     }
+
+     function compareBoolIntLoad() public returns(int gasDiff) {
+        BoolIntLoadDemo demo = new BoolIntLoadDemo();
+        uint256 startGas = gasleft();
+        demo.loadBool();
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 614 gas
+
+        startGas = gasleft();
+        demo.loadBool();
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 611 gas
+
+        startGas = gasleft();
+        demo.loadInt();
+        endGas = gasleft();
+        uint256 gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2); // 791 gas
+        return int(gasUsage1) - int(gasUsage2); // -180 gas
+     }
+
+     function compareReturnComposite() public returns(uint gasSaved) {
+        ERC721 erc721 = new ERC721();
+        uint256 startGas = gasleft();
+        erc721.ownerOf(0);
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 1749 gas
+
+        startGas = gasleft();
+        erc721.ownerOf1(0);
+        endGas = gasleft();
+        uint256 gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2); // 1711 gas
+
+        gasSaved =  gasUsage1 - gasUsage2;
+        emit log_named_uint("gasSaved0", gasSaved); // 38 gas   
+
+        bytes32 a = 0xc5d2460186f11111927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470;
+        bytes32 b = 0x1111111333333333666666668888888888888888222222222999999999999000;
+        bytes32[] memory proof = new bytes32[](2);
+        proof[0] = a;
+        proof[1] = b;
+        bytes32 leaf = 0xc5d2460186f11111927e7db2dcc222c0e500b653ca82273b7bfad8045d85a470;
+
+        startGas = gasleft();
+        MerkleProof.processProof(proof, leaf);
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1_1", gasUsage1); // 802 gas
+
+        startGas = gasleft();
+        MerkleProof.processProof2(proof, leaf);
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2_1", gasUsage2); // 789 gas
+
+        gasSaved =  gasUsage1 - gasUsage2;
+        emit log_named_uint("gasSaved1", gasSaved); // 13 gas  
+
+        ERC721A erc721a = new ERC721A();
+        startGas = gasleft();
+        erc721a._ownershipOf();
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1_2", gasUsage1); // 2818 gas
+
+        startGas = gasleft();
+        erc721a._ownershipOf2();
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2_2", gasUsage2); // 2738 gas
+
+        gasSaved =  gasUsage1 - gasUsage2;
+        emit log_named_uint("gasSaved2", gasSaved); // 79 gas  
+
+        uint256[] memory tokenIds = new uint256[](2);
+        tokenIds[0] = 0;
+        tokenIds[1] = 1;
+        startGas = gasleft();
+        erc721a.explicitOwnershipsOf(tokenIds);
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1_3", gasUsage1); // 7673 gas
+
+        startGas = gasleft();
+        erc721a.explicitOwnershipsOf2(tokenIds);
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2_3", gasUsage2); // 7682 gas
+
+      //   gasSaved =  gasUsage1 - gasUsage2;
+      //   emit log_named_uint("gasSaved3", gasSaved); // -9 gas 
+
+        Lloyd lloyd = new Lloyd();
+        startGas = gasleft();
+        lloyd.walletOfOwner();
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1_4", gasUsage1); // 2752 gas
+
+        startGas = gasleft();
+        lloyd.walletOfOwner2();
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2_4", gasUsage2); // 2761 gas
+      //   gasSaved =  gasUsage1 - gasUsage2; // -9 gas
+
+        return gasSaved;
      }
 }
