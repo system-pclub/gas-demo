@@ -104,6 +104,50 @@ contract SimpleGasTest is GasMeasure {
         return gasUsage1 - gasUsage2; // 25 gas
      }
 
+     function computeComplexIfSavedGas() public returns(uint gasSaved) {
+        uint256 a = 2;
+        uint256 b = 2;
+
+        uint256 startGas = gasleft();
+        ifDemo.complexCondition(a, b);
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+
+        startGas = gasleft();
+        ifDemo.complexCondition2(a, b);
+        endGas = gasleft();
+        uint256 gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2); // 1805 gas
+
+        startGas = gasleft();
+        ifDemo.complexCondition(a, b);
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        return gasUsage1 - gasUsage2; // 51 gas
+     }
+
+     function computeConditionalExpressionSavedGas() public returns(uint gasSaved) {
+        uint256 a = 3;
+        uint256 b = 3;
+
+        uint256 startGas = gasleft();
+        ifDemo.conditionalExpression(a, b);
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+
+        startGas = gasleft();
+        ifDemo.conditionalExpression2(a, b);
+        endGas = gasleft();
+        uint256 gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2); // 1800 gas
+
+        startGas = gasleft();
+        ifDemo.conditionalExpression(a, b);
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        return gasUsage2 - gasUsage1; // 60 gas
+     }
+
      function computeCachedSavedGas() public returns(uint gasSaved) {
         uint256 id = 0;
         cachedResultDemo.setAddress(address(0xBEEF)); 

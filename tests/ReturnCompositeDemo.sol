@@ -128,15 +128,15 @@ contract ERC721A {
 contract Lloyd {
 
   function walletOfOwner() public pure returns (uint256[] memory) {
-      uint256[] memory ownedTokenIds = new uint256[](2);
-
       unchecked {
+        uint256[] memory ownedTokenIds = new uint256[](2);
         uint256 currentTokenId = 10;
         uint256 ownedTokenIndex = 0;
         ownedTokenIds[ownedTokenIndex] = currentTokenId;
+        return ownedTokenIds;
       }
     
-    return ownedTokenIds;
+    
   }
 
   function walletOfOwner2() public pure returns (uint256[] memory ownedTokenIds) {
