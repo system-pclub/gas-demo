@@ -196,8 +196,32 @@ contract SimpleGasTest is GasMeasure {
         endGas = gasleft();
         gasUsage1 = startGas - endGas;
         emit log_named_uint("gasUsage1", gasUsage1);
+        emit log_named_uint("gasSaved1", gasUsage1 - gasUsage2); // 121589 gas
 
-        return gasUsage1 - gasUsage2; // 121589 gas
+        startGas = gasleft();
+        BeforeDemo bbeforeDemo = new BeforeDemo();
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1);
+
+        startGas = gasleft();
+        bbeforeDemo = new BeforeDemo();
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1);
+
+        startGas = gasleft();
+        AfterDemo afterDemo = new AfterDemo();
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2);
+
+        startGas = gasleft();
+        afterDemo = new AfterDemo();
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2);
+        return gasUsage1 - gasUsage2; // 17627 gas
      }
 
      function computeSSTORESavedGas() public returns(uint gasSaved) {
