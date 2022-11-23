@@ -8,7 +8,7 @@ import {ReturnDemo} from "./ReturnDemo.sol";
 import {IfDemo} from "./IfDemo.sol";
 import {CachedResultDemo} from "./CachedResultDemo.sol";
 import "./SSTOREDemo.sol";
-import "./RemoveSLOADDemo.sol";
+import "./SimplifyConstructorDemo.sol";
 import "./BoolDemo.sol";
 import "./ExtcodeDemo.sol";
 import "./BoolIntLoadDemo.sol";
@@ -90,18 +90,20 @@ contract SimpleGasTest is GasMeasure {
         ifDemo.andCondition(a, b);
         uint256 endGas = gasleft();
         uint256 gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1);
 
         startGas = gasleft();
         ifDemo.tierCondition(a, b);
         endGas = gasleft();
         uint256 gasUsage2 = startGas - endGas;
-        emit log_named_uint("gasSaved", gasUsage1 - gasUsage2); // 4540 gas
+        emit log_named_uint("gasUsage2", gasUsage2); // 1900 gas
 
         startGas = gasleft();
         ifDemo.andCondition(a, b);
         endGas = gasleft();
         gasUsage1 = startGas - endGas;
-        return gasUsage1 - gasUsage2; // 25 gas
+        emit log_named_uint("gasUsage1", gasUsage1); //2016 gas
+        return gasUsage1 - gasUsage2; // 116 gas
      }
 
      function computeComplexIfSavedGas() public returns(uint gasSaved) {
@@ -172,7 +174,7 @@ contract SimpleGasTest is GasMeasure {
         return gasUsage1 - gasUsage2; // 170 gas
      }
 
-     function computeSloadSavedGas() public returns(uint gasSaved) {
+     function computeSimplifyConstructorSavedGas() public returns(uint gasSaved) {
         uint256 startGas = gasleft();
         SimpleTokenDemo simpleDemo = new SimpleTokenDemo();
         uint256 endGas = gasleft();
