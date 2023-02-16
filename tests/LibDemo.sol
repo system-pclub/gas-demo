@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
-pragma solidity 0.8.15;
+pragma solidity >=0.8.15;
+
+import {wadTest} from "./utils/Math.sol";
 
 contract LibDemo {
     address public operator;
@@ -45,6 +47,17 @@ contract LibDemo2 {
         start += a;
         end += a;
     }
+
+    function read3(
+        address pointer,
+        uint256 start,
+        uint256 end
+    ) public view {
+        start += 1;
+        end += 1;
+    }
+
+
 }
 
 contract LibDemo3 {
@@ -104,5 +117,103 @@ contract LibDemo4 {
         Checkpoint[] memory _checkpoints = hist._checkpoints;
         uint len = _checkpoints.length;
         Checkpoint memory cp = _checkpoints[0];
+    }
+}
+
+contract LibDemo5 {
+    enum Error {
+        None,
+        RevertWithMessage,
+        RevertWithoutMessage,
+        Panic
+    }
+
+    Error private immutable _error;
+
+    constructor(Error error) {
+        _error = error;
+    }
+
+    function test0() public view {
+        if (_error == Error.RevertWithMessage) {
+            
+        } else if (_error == Error.RevertWithoutMessage) {
+            
+        } else if (_error == Error.Panic) {
+            uint256 a = uint256(0) / uint256(1);
+            a;
+        }
+    }
+
+    function test1() public view {
+        Error tmpError = _error;
+        if (tmpError == Error.RevertWithMessage) {
+            
+        } else if (tmpError == Error.RevertWithoutMessage) {
+            
+        } else if (tmpError == Error.Panic) {
+            uint256 a = uint256(0) / uint256(1);
+            a;
+        }
+    }
+}
+
+contract LibDemo6 {
+     bool a;
+     uint constant TRUE = 1;
+     uint constant FALSE = 2;
+     uint c = FALSE;
+     bool immutable tt;
+     uint immutable cc;
+
+     constructor(bool bb){
+         cc = bb ? TRUE:FALSE;
+         tt = bb;
+     }
+
+     function test0() public {
+         if (!a){
+             uint tmp = 8;
+         }
+     }
+
+     function test1() public {
+         if (c == FALSE) {
+            uint tmp = 8;
+         }
+     }
+
+     function test2() public returns (bool) {
+         return a;
+     }
+
+     function test3() public returns (bool) {
+         return c==TRUE;
+     }
+
+     function test4(bool b) public {
+         a = b;
+     }
+     function test5(bool b) public {
+         c = b?TRUE:FALSE;
+     }
+}
+
+contract LibDemo7 {
+    int256 internal immutable bb;
+
+    constructor(int256 _priceDecayPercent) public {
+        bb = wadTest(10 - _priceDecayPercent);
+        require(bb < 0, "NON_NEGATIVE_DECAY_CONSTANT");
+    }
+}
+
+contract LibDemo8 {
+    int256 internal immutable bb;
+
+    constructor(int256 _priceDecayPercent) public {
+        int256 cc = wadTest(10 - _priceDecayPercent);
+        bb = cc;
+        require(cc < 0, "NON_NEGATIVE_DECAY_CONSTANT");
     }
 }
