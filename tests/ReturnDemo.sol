@@ -34,4 +34,22 @@ contract ReturnDemo {
 
         return a + b;
     }
+
+    function test1(string calldata input) public returns(string memory data) {
+        data = input[0:3];
+    }
+
+    function test2(string calldata input) public returns(string calldata data) {
+        data = input[0:3];
+    }
+
+    function test3(string calldata input) public returns(string memory) {
+        string memory data = input[0:3];
+        return data;
+    }
+
+    function test4(string calldata input) public returns(string calldata) {
+        string calldata data = input[0:3];
+        return data;
+    }
 }
