@@ -200,19 +200,87 @@ contract LibGasTest is GasMeasure {
         LibDemo7 demo = new LibDemo7(20);
         uint256 endGas = gasleft();
         uint256 gasUsage1 = startGas - endGas;
-        emit log_named_uint("gasUsage1", gasUsage1); // 45889 gas
+        emit log_named_uint("gasUsage1", gasUsage1); // 45935 gas
 
         startGas = gasleft();
         LibDemo7 demo2 = new LibDemo7(20);
         endGas = gasleft();
         gasUsage1 = startGas - endGas;
-        emit log_named_uint("gasUsage1", gasUsage1);  // 45813 gas
+        emit log_named_uint("gasUsage1", gasUsage1);  // 45859 gas
 
         startGas = gasleft();
         LibDemo8 demo3 = new LibDemo8(20);
         endGas = gasleft();
         uint gasUsage2 = startGas - endGas;
-        emit log_named_uint("gasUsage2", gasUsage2);  // 45823 gas
+        emit log_named_uint("gasUsage2", gasUsage2);  // 45869 gas
         // emit log_named_uint("gasSaved1", gasUsage1 - gasUsage2);  // 151 gas
+    }
+
+    function test9() public {
+        LibDemo9 demo = new LibDemo9();
+        uint256 startGas = gasleft();
+        demo._compressExecutions1(new Execution[](1));
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 5712 gas
+
+        startGas = gasleft();
+        demo._compressExecutions1(new Execution[](1));
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1);  // 5709 gas
+
+        startGas = gasleft();
+        demo._compressExecutions2(new Execution[](1));
+        endGas = gasleft();
+        uint gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2);  // 5728 gas
+        // emit log_named_uint("gasSaved", gasUsage1 - gasUsage2);  //  gas
+
+        startGas = gasleft();
+        demo.test1(3);
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1);  // 1394 gas
+
+        startGas = gasleft();
+        demo.test2(3);
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2);  // 1435 gas
+
+        startGas = gasleft();
+        demo.test1(1);
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1);  // 1404 gas
+
+        startGas = gasleft();
+        demo.test2(1);
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2);  // 1445 gas
+    }
+
+    function test10() public {
+        LibDemo10 demo = new LibDemo10();
+        uint256 startGas = gasleft();
+        demo._assertNonReentrant1();
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 585 gas
+
+        startGas = gasleft();
+        demo._assertNonReentrant1();
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1);  // 582 gas
+
+        startGas = gasleft();
+        demo._assertNonReentrant2();
+        endGas = gasleft();
+        uint gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2);  // 604 gas
+        // emit log_named_uint("gasSaved", gasUsage1 - gasUsage2);  // 151 gas
     }
 }

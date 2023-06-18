@@ -217,3 +217,81 @@ contract LibDemo8 {
         require(cc < 0, "NON_NEGATIVE_DECAY_CONSTANT");
     }
 }
+
+struct Execution {
+    uint256 e;
+}
+
+struct BatchExecution {
+    Execution e;
+}
+
+contract LibDemo9 {
+    function _compressExecutions1(
+        Execution[] memory executions
+    ) external pure returns (
+        Execution[] memory standardExecutions,
+        BatchExecution[] memory batchExecutions
+    ) {
+        unchecked {
+            // Read executions array length from memory and place on the stack.
+            uint256 totalExecutions = executions.length;
+
+            // Return early if less than two executions are provided.
+            if (totalExecutions < 2) {
+                return (executions, new BatchExecution[](0));
+            }
+        }
+    }
+
+    function _compressExecutions2(
+        Execution[] memory executions
+    ) external pure returns (
+        Execution[] memory standardExecutions,
+        BatchExecution[] memory batchExecutions
+    ) {
+        unchecked {
+            // Read executions array length from memory and place on the stack.
+            uint256 totalExecutions = executions.length;
+
+            // Return early if less than two executions are provided.
+            if (totalExecutions <= 1) {
+                return (executions, new BatchExecution[](0));
+            }
+        }
+    }
+
+    function test1(uint256 a) public returns (uint256 b) {
+        if (a < 2){
+            return 2;
+        }
+        return 1;
+    }
+
+    function test2(uint256 a) public returns (uint256 b) {
+        if (a <= 1){
+            return 2;
+        }
+        return 1;
+    }
+}
+
+contract LibDemo10 {
+    uint256 constant _NOT_ENTERED = 1;
+    uint256 constant _ENTERED = 2;
+    uint256 _reentrancyGuard = 1;
+
+    function _assertNonReentrant1() external view {
+        // Ensure that the reentrancy guard is not currently set.
+        if (_reentrancyGuard == _ENTERED) {
+            revert();
+        }
+    }
+
+    function _assertNonReentrant2() external view {
+        // Ensure that the reentrancy guard is not currently set.\
+        if (_reentrancyGuard != _NOT_ENTERED) {
+            revert();
+        }
+    }
+}

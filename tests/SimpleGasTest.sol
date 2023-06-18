@@ -39,17 +39,19 @@ contract SimpleGasTest is GasMeasure {
         uncheckedDemo.checkedMint(to, amount);
         uint256 endGas = gasleft();
         uint256 gasUsage_checked = startGas - endGas;
+        emit log_named_uint("gasUsage_checked", gasUsage_checked); // 52630 gas
 
         startGas = gasleft();
         uncheckedDemo.uncheckedMint(to, amount);
         endGas = gasleft();
         uint256 gasUsage_unchecked = startGas - endGas;
-        emit log_named_uint("gasSaved", gasUsage_checked - gasUsage_unchecked); // 48525 gas
+        emit log_named_uint("gasUsage_unchecked", gasUsage_unchecked); // 4105 gas
 
         startGas = gasleft();
         uncheckedDemo.checkedMint(to, amount);
         endGas = gasleft();
         gasUsage_checked = startGas - endGas;
+        emit log_named_uint("gasUsage_checked", gasUsage_checked); // 4315 gas
         return gasUsage_checked - gasUsage_unchecked; // 210 gas
     }
 
@@ -164,14 +166,15 @@ contract SimpleGasTest is GasMeasure {
         cachedResultDemo.burnUseCached(id);
         endGas = gasleft();
         uint256 gasUsage2 = startGas - endGas;
-        emit log_named_uint("gasSaved", gasUsage1 - gasUsage2); // 24073 gas
+        emit log_named_uint("gasUsage2", gasUsage2); // 4270 gas
 
         cachedResultDemo.setAddress(address(0xBEEF));
         startGas = gasleft();
         cachedResultDemo.burn(id);
         endGas = gasleft();
         gasUsage1 = startGas - endGas;
-        emit log_named_uint("gasSaved", gasUsage1 - gasUsage2); // 281 gas
+        emit log_named_uint("gasUsage1", gasUsage1); // 4484 gas
+        emit log_named_uint("gasSaved", gasUsage1 - gasUsage2); // 214 gas
 
         startGas = gasleft();
         cachedResultDemo.test0();
@@ -200,7 +203,7 @@ contract SimpleGasTest is GasMeasure {
         endGas = gasleft();
         gasUsage2 = startGas - endGas;
         emit log_named_uint("gasUsage2", gasUsage2); // 832 gas
-        emit log_named_uint("gasSaved", gasUsage1 - gasUsage2); // gas
+      //   emit log_named_uint("gasSaved", gasUsage1 - gasUsage2); // gas
 
         startGas = gasleft();
         cachedResultDemo.test4();
@@ -227,17 +230,38 @@ contract SimpleGasTest is GasMeasure {
         cachedResultDemo.test7(2);
         endGas = gasleft();
         gasUsage2 = startGas - endGas;
-        emit log_named_uint("gasSaved", gasUsage1 - gasUsage2); // 179 gas
+        emit log_named_uint("gasSaved", gasUsage1 - gasUsage2); // 179 gas 321 gas
 
         startGas = gasleft();
         cachedResultDemo.test8();
         endGas = gasleft();
         gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); //  744 gas
 
         startGas = gasleft();
         cachedResultDemo.test9();
         endGas = gasleft();
-        gasUsage2 = startGas - endGas;
+        gasUsage2 = startGas - endGas; 
+        emit log_named_uint("gasUsage2", gasUsage2); //  735 gas
+        emit log_named_uint("gasSaved", gasUsage1 - gasUsage2); // 9 gas
+
+        startGas = gasleft();
+        cachedResultDemo.test10();
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage_test10", gasUsage1); //  2973 gas
+
+        startGas = gasleft();
+        cachedResultDemo.test10();
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage_test10", gasUsage1); //  973 gas
+
+        startGas = gasleft();
+        cachedResultDemo.test11();
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas; 
+        emit log_named_uint("gasUsage_test11", gasUsage2); //  899 gas
         return gasUsage1-gasUsage2; // 9 gas
      }
 
@@ -310,13 +334,15 @@ contract SimpleGasTest is GasMeasure {
         secondary.transferPrimary(address(0xBEEF));
         endGas = gasleft();
         gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 2649 gas
 
         startGas = gasleft();
         secondary2.transferPrimary(address(0xBEEF));
         endGas = gasleft();
         gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2); // 2516 gas
         
-        return gasUsage1 - gasUsage2; // 113 gas
+        return gasUsage1 - gasUsage2; // 133 gas
      }
 
      function computBoolSavedGas() public returns(uint gasSaved) {

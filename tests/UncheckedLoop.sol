@@ -42,6 +42,20 @@ contract UncheckedLoopDemo {
         }
     }
 
+    function smallTest3(uint256 times) public pure {
+        uint256 pos = 0;
+        uint256 index = 0;
+        uint256[] memory hashes = new uint256[](times);
+
+        for (uint256 i = 0; i < times;) {
+            index++;
+            hashes[pos++] = 1;
+            unchecked {
+                i++;
+            }
+        }
+    }
+
     function processMultiProof(
         bytes32[] memory proof,
         bool[] memory proofFlags,
@@ -110,6 +124,12 @@ contract UncheckedLoopTest is GasMeasure {
         endGas = gasleft();
         uint256 gasUsage2 = startGas - endGas;
         emit log_named_uint("gasUsage2", gasUsage1);  // 2217 gas
+
+        startGas = gasleft();
+        demo.smallTest3(6);
+        endGas = gasleft();
+        uint256 gasUsage3 = startGas - endGas;
+        emit log_named_uint("gasUsage3", gasUsage1);  // 2217 gas
 
 
         startGas = gasleft();

@@ -8,11 +8,13 @@ contract CachedResultDemo {
     mapping(address => uint256) public balanceOf;
     mapping(uint256 => address) public ownerOf;
     mapping(uint256 => address) public getApproved;
+    address[] public allPairs;
     uint256 a = 3;
     uint112 a112;
+    uint112 b112;
     address public immutable add1 = address(0xBEEF);
 
-    event Sync(uint112 reserve0);
+    event Sync(uint112 reserve0, uint112 reserve1);
 
 
     function setAddress(address _a) public {
@@ -96,22 +98,39 @@ contract CachedResultDemo {
 
     function test6(uint bb) public {
         a112 = uint112(bb);
-        emit Sync(a112);
+        b112 = uint112(bb);
+        emit Sync(a112, b112);
     }
 
     function test7(uint bb) public {
         a112 = uint112(bb);
-        emit Sync(uint112(bb));
+        b112 = uint112(bb);
+        emit Sync(uint112(bb), uint112(bb));
     }
 
     function test8() public {
-        address add2 = add1;
-        address add3 = add1;
+        transfer1(add1);
+        transfer1(add1);
     }
 
     function test9() public {
-        address add4 = add1;
-        address add2 = add4;
-        address add3 = add4;
+        address add2 = add1;
+        transfer1(add2);
+        transfer1(add2);
+    }
+
+    function transfer1(address add) public {
+
+    }
+
+    function test10() public {
+        uint256 l1 = allPairs.length;
+        uint256 l2 = allPairs.length;
+    }
+
+    function test11() public {
+        uint256 l1 = allPairs.length;
+        uint256 l2 = l1;
+        uint256 l3 = l1;
     }
 }
