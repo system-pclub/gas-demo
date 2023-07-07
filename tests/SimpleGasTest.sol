@@ -82,6 +82,18 @@ contract SimpleGasTest is GasMeasure {
         endGas = gasleft();
         gasUsage1 = startGas - endGas;
         emit log_named_uint("gas_1", gasUsage1); // 1919 gas
+
+        startGas = gasleft();
+        returnDemo.test1();
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 2129 gas
+
+        startGas = gasleft();
+        returnDemo.test2();
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2); // 2095 gas
     }
 
      function computeIfSavedGas() public returns(uint gasSaved) {
@@ -262,7 +274,26 @@ contract SimpleGasTest is GasMeasure {
         endGas = gasleft();
         gasUsage2 = startGas - endGas; 
         emit log_named_uint("gasUsage_test11", gasUsage2); //  899 gas
-        return gasUsage1-gasUsage2; // 9 gas
+        emit log_named_uint("gasSaved", gasUsage1 - gasUsage2); // 9 gas
+
+        startGas = gasleft();
+        cachedResultDemo.test12();
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas; 
+        emit log_named_uint("gasUsage_test12", gasUsage1); //  15837 gas
+
+        startGas = gasleft();
+        cachedResultDemo.test12();
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas; 
+        emit log_named_uint("gasUsage_test12", gasUsage1); //  2237 gas
+
+        startGas = gasleft();
+        cachedResultDemo.test13();
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas; 
+        emit log_named_uint("gasUsage_test13", gasUsage2); //  2026 gas
+        return gasUsage1 - gasUsage2; // 211 gas
      }
 
      function computeSimplifyConstructorSavedGas() public returns(uint gasSaved) {

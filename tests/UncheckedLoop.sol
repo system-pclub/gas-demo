@@ -5,6 +5,20 @@ import {GasMeasure} from "./utils/GasMeasure.sol";
 
 contract UncheckedLoopDemo {
 
+    function test1(uint256[] memory data) public {
+        for (uint256 i = 0; i < data.length; i++) {
+            smallTest0(data[i]);
+        }
+    }
+
+    function test2(uint256[] memory data) public {
+        unchecked {
+            for (uint256 i = 0; i < data.length; i++) {
+                smallTest0(data[i]);
+            }
+        }
+    }
+
     function smallTest0(uint256 times) public {
         uint256 pos = 0;
         uint256 index = 0;
@@ -149,5 +163,30 @@ contract UncheckedLoopTest is GasMeasure {
         endGas = gasleft();
         gasUsage2 = startGas - endGas;
         emit log_named_uint("gasUsage2", gasUsage1);  // 17278 gas
+    }
+
+    function test2(uint len) public {
+        UncheckedLoopDemo demo = new UncheckedLoopDemo();
+        uint256[] memory data = new uint256[](len);
+        data[0] = 1;
+
+        uint256 startGas = gasleft();
+        demo.test1(data);
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 11201 gas
+
+        startGas = gasleft();
+        demo.test1(data);
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1);  // 11198 gas
+
+        startGas = gasleft();
+        demo.test2(data);
+        endGas = gasleft();
+        uint256 gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2);  // 10020 gas
+        emit log_named_uint("gasSaved", gasUsage1 - gasUsage2);  // 1178 gas
     }
 }

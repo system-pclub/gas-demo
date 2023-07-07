@@ -34,4 +34,14 @@ contract ReturnDemo {
 
         return a + b;
     }
+
+    function test1 () public pure returns (string memory) { 
+        string memory s = "test";
+        return s;
+    }
+
+    function test2() public pure returns (string memory s) { 
+        s = "test";
+        return s;
+    }
 }

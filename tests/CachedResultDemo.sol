@@ -3,6 +3,12 @@ pragma solidity 0.8.15;
 
 contract CachedResultDemo {
 
+    struct Position {
+        uint256 a;
+        uint256 b;
+        int128 c;
+    }
+
     event Transfer(address indexed from, address indexed to, uint256 amount);
 
     mapping(address => uint256) public balanceOf;
@@ -13,9 +19,13 @@ contract CachedResultDemo {
     uint112 a112;
     uint112 b112;
     address public immutable add1 = address(0xBEEF);
+    Position[] public positions;
 
     event Sync(uint112 reserve0, uint112 reserve1);
 
+    constructor() {
+        positions.push(Position(1,1,1));
+    }
 
     function setAddress(address _a) public {
         ownerOf[0] = _a;
@@ -133,4 +143,29 @@ contract CachedResultDemo {
         uint256 l2 = l1;
         uint256 l3 = l1;
     }
+
+    function test12() public {
+        Position storage position = positions[0];
+        int128 t = position.c;
+        int128 t2 = position.c;
+        int128 t3 = position.c;
+        position.a+=1;
+        position.b+=1;
+        // test14(position);
+    }
+
+    function test13() public {
+        Position storage position = positions[0];
+        Position memory position_tmp = position;
+        int128 t = position_tmp.c;
+        int128 t2 = position_tmp.c;
+        int128 t3 = position_tmp.c;
+        position.a=position_tmp.a+1;
+        position.b=position_tmp.b+1;
+        // test14(position_tmp);
+    }
+
+    // function test14(Position memory position) public {
+
+    // }
 }
