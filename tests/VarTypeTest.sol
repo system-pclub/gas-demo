@@ -123,4 +123,26 @@ contract VarTypeTest is GasMeasure {
         emit log_named_uint("gasUsage2", gasUsage2); // 273632 gas
         emit log_named_uint("gasSaved", gasUsage1 - gasUsage2); // 222287 gas
     }
+
+    function test4() public {
+        string memory s = "ss";
+        uint256 startGas = gasleft();
+        demo.test13(s);
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 6522 gas
+
+        startGas = gasleft();
+        demo.test14(s);
+        endGas = gasleft();
+        uint256 gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2); // 1703 gas
+
+        startGas = gasleft();
+        demo.test13(s);
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 2007 gas
+
+    }
 }

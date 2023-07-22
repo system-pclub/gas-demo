@@ -295,3 +295,30 @@ contract LibDemo10 {
         }
     }
 }
+
+contract LibDemo11 {
+    mapping(address => mapping(uint => uint)) balanceOf;
+    function safeBatchTransferFrom1(address from,address to, uint[] memory ids, uint[] memory amounts) public {
+        uint idsLength = ids.length; 
+        for (uint i = 0; i < idsLength;) {
+            uint id = ids[i];
+            uint amount = amounts[i];
+            balanceOf[from][id] -= amount;
+            balanceOf[to][id] += amount;
+            unchecked { i++; }
+        }
+    }
+
+    function safeBatchTransferFrom2(address from,address to, uint[] memory ids, uint[] memory amounts) public {
+        uint idsLength = ids.length; 
+        uint id;
+        uint amount;
+        for (uint i = 0; i < idsLength;) {
+            id = ids[i];
+            amount = amounts[i];
+            balanceOf[from][id] -= amount;
+            balanceOf[to][id] += amount;
+            unchecked { i++; }
+        }
+    }
+}

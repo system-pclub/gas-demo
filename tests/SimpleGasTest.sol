@@ -286,14 +286,14 @@ contract SimpleGasTest is GasMeasure {
         cachedResultDemo.test12();
         endGas = gasleft();
         gasUsage1 = startGas - endGas; 
-        emit log_named_uint("gasUsage_test12", gasUsage1); //  2237 gas
+        emit log_named_uint("gasUsage_test12", gasUsage1); //  1307 gas
 
         startGas = gasleft();
         cachedResultDemo.test13();
         endGas = gasleft();
         gasUsage2 = startGas - endGas; 
-        emit log_named_uint("gasUsage_test13", gasUsage2); //  2026 gas
-        return gasUsage1 - gasUsage2; // 211 gas
+        emit log_named_uint("gasUsage_test13", gasUsage2); //  1380 gas
+        return gasUsage1; // 211 gas
      }
 
      function computeSimplifyConstructorSavedGas() public returns(uint gasSaved) {

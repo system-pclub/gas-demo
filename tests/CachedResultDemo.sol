@@ -146,22 +146,17 @@ contract CachedResultDemo {
 
     function test12() public {
         Position storage position = positions[0];
-        int128 t = position.c;
-        int128 t2 = position.c;
+        uint256 t = position.a;
+        uint256 t2 = position.b;
         int128 t3 = position.c;
-        position.a+=1;
-        position.b+=1;
-        // test14(position);
     }
 
     function test13() public {
         Position storage position = positions[0];
         Position memory position_tmp = position;
-        int128 t = position_tmp.c;
-        int128 t2 = position_tmp.c;
+        uint256 t = position_tmp.a;
+        uint256 t2 = position_tmp.b;
         int128 t3 = position_tmp.c;
-        position.a=position_tmp.a+1;
-        position.b=position_tmp.b+1;
         // test14(position_tmp);
     }
 

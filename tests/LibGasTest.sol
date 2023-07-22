@@ -283,4 +283,30 @@ contract LibGasTest is GasMeasure {
         emit log_named_uint("gasUsage2", gasUsage2);  // 604 gas
         // emit log_named_uint("gasSaved", gasUsage1 - gasUsage2);  // 151 gas
     }
+
+    function test11() public {
+        LibDemo11 demo = new LibDemo11();
+        address from = address(0xBEEF);
+        address to = address(0xBEEF); 
+        uint[] memory ids = new uint[](10); 
+        uint[] memory amounts = new uint[](10); 
+        uint256 startGas = gasleft();
+        demo.safeBatchTransferFrom1(from, to, ids, amounts);
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 28666 gas
+
+        startGas = gasleft();
+        demo.safeBatchTransferFrom1(from, to, ids, amounts);
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1);  // 26663 gas
+
+        startGas = gasleft();
+        demo.safeBatchTransferFrom2(from, to, ids, amounts);
+        endGas = gasleft();
+        uint gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2);  // 26551 gas
+        emit log_named_uint("gasSaved", gasUsage1 - gasUsage2);  // 112 gas
+    }
 }

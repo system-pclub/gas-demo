@@ -157,3 +157,37 @@ contract Demo {
         }
     }
 }
+
+contract ReentrancyGuard0 {
+
+    uint private constant REENTRANCY_GUARD_FREE = 1;
+    uint private constant REENTRANCY_GUARD_LOCKED = 2;
+    uint private reentrancyLock = REENTRANCY_GUARD_FREE;
+
+    modifier nonReentrant() {
+        require(reentrancyLock == REENTRANCY_GUARD_FREE);
+        reentrancyLock = REENTRANCY_GUARD_LOCKED;   
+        _;
+        reentrancyLock = REENTRANCY_GUARD_FREE;
+    }
+
+    function test() nonReentrant public {
+        uint a = 1;
+    } 
+
+}
+
+contract ReentrancyGuard1 {
+
+    uint private guardCounter = 1;
+
+    modifier nonReentrant() {
+        uint localCounter = ++guardCounter;           
+        _;
+        require(localCounter == guardCounter);
+    }
+
+    function test() nonReentrant public {
+        uint a = 1;
+    }
+}

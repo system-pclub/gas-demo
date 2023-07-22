@@ -11,6 +11,7 @@ contract ZeroValueDemo {
         bool b;
     }
 
+    uint256 n;
     Param p;
 
     function setP(Param calldata param) public {
@@ -23,6 +24,10 @@ contract ZeroValueDemo {
 
     function setB(bool b) public {
         p.b = b;
+    }
+
+    function setN(uint256 i) public {
+        n = i;
     }
 }
 
@@ -87,6 +92,18 @@ contract ZeroValueTest is GasMeasure {
         gasUsage2 = startGas - endGas;
         emit log_named_uint("gasUsage2_3", gasUsage2); // 1280 gas
 
+        startGas = gasleft();
+        demo.setA(100);
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2_4", gasUsage2); // 1280 gas
+
+        startGas = gasleft();
+        demo.setA(200);
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2_5", gasUsage2); // 1280 gas
+
 
         startGas = gasleft();
         demo.setB(false);
@@ -99,5 +116,38 @@ contract ZeroValueTest is GasMeasure {
         endGas = gasleft();
         gasUsage3 = startGas - endGas;
         emit log_named_uint("gasUsage3_2", gasUsage3); // 21194 gas
+    }
+
+    function test2() public {
+
+        uint256 startGas = gasleft();
+        demo.setN(1);
+        uint256 endGas = gasleft();
+        uint256 gasUsage = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage); // 27786 gas
+
+        startGas = gasleft();
+        demo.setN(2);
+        endGas = gasleft();
+        gasUsage = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage); // 1274 gas
+
+        startGas = gasleft();
+        demo.setN(0);
+        endGas = gasleft();
+        gasUsage = startGas - endGas;
+        emit log_named_uint("gasUsage3", gasUsage); // 1274 gas
+
+        startGas = gasleft();
+        demo.setN(2);
+        endGas = gasleft();
+        gasUsage = startGas - endGas;
+        emit log_named_uint("gasUsage4", gasUsage); // 21174 gas
+
+        startGas = gasleft();
+        demo.setN(1);
+        endGas = gasleft();
+        gasUsage = startGas - endGas;
+        emit log_named_uint("gasUsage5", gasUsage); // 1274 gas
     }
 }

@@ -7,6 +7,8 @@ import "./NewDemo.sol";
 
 contract Test is GasMeasure {
     Demo demo = new Demo();
+    ReentrancyGuard0 reen0 = new ReentrancyGuard0();
+    ReentrancyGuard1 reen1 = new ReentrancyGuard1();
 
     function test1() public {
         uint256 startGas = gasleft();
@@ -46,6 +48,33 @@ contract Test is GasMeasure {
         endGas = gasleft();
         uint256 gasUsage2 = startGas - endGas;
         emit log_named_uint("gasUsage2", gasUsage2); // 1311 gas
+        // emit log_named_uint("gasSaved", gasUsage1 -  gasUsage2); // 66 gas
+    }
+
+    function test3() public {
+        uint256 startGas = gasleft();
+        reen0.test();
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 10271 gas
+
+        startGas = gasleft();
+        reen0.test();
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 3762 gas
+
+        startGas = gasleft();
+        reen1.test();
+        endGas = gasleft();
+        uint256 gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2); // 10393 gas
+
+        startGas = gasleft();
+        reen1.test();
+        endGas = gasleft();
+        gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2); // 1093 gas
         // emit log_named_uint("gasSaved", gasUsage1 -  gasUsage2); // 66 gas
     }
 }

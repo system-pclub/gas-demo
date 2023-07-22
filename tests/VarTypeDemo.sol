@@ -81,6 +81,17 @@ contract VarTypeDemo {
         test8(amounts);
     }
 
+    function test13(string memory s) public {
+        test15(s);
+    }
+
+    function test14(string calldata s) public {
+        test15(s);
+    }
+
+    function test15(string memory s) public {
+    }
+
     // function balanceOfBatch1(address[] memory owners, uint256[] memory ids)
     //     public
     //     view
