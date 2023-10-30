@@ -322,3 +322,144 @@ contract LibDemo11 {
         }
     }
 }
+
+contract LibDemo12 {
+    function test1() public returns(uint256, uint256) {
+        uint256 t1 = 10;
+        uint256 t2 = 12;
+        t1+=1;
+        t2+=1;
+        return (t1, t2);
+    }
+
+    function test2() public returns(uint256 t1, uint256 t2) {
+        t1 = 10;
+        t2 = 12;
+        t1+=1;
+        t2+=1;
+        return (t1, t2);
+    }
+}
+
+contract LibDemo13 {
+    function rpow1(
+        uint256 x,
+        uint256 n,
+        uint256 scalar
+    ) public returns (uint256 z) {
+        /// @solidity memory-safe-assembly
+        uint256 sg = gasleft();
+        assembly {
+            let half := shr(1, scalar)
+            for {
+                    // Shift n right by 1 before looping to halve it.
+                    n := shr(1, n)
+                } n {
+                    // Shift n right by 1 each iteration to halve it.
+                    n := shr(1, n)
+                } {
+
+                    // Store x squared.
+                    let xx := mul(x, x)
+
+                    // Round to the nearest number.
+                    let xxRound := add(xx, half)
+
+                    // Revert if xx + half overflowed.
+                    if lt(xxRound, xx) {
+                        revert(0, 0)
+                    }
+
+                    // Set x to scaled xxRound.
+                    x := div(xxRound, scalar)
+                }
+        }
+        uint256 eg = gasleft();
+        z = sg - eg;
+    }
+
+    function rpow2(
+        uint256 x,
+        uint256 n,
+        uint256 scalar
+    ) public returns (uint256 z) {
+        uint256 sg = gasleft();
+        /// @solidity memory-safe-assembly
+        assembly {
+            let half := shr(1, scalar)
+            let xx
+            let xxRound
+            for {
+                    // Shift n right by 1 before looping to halve it.
+                    n := shr(1, n)
+                } n {
+                    // Shift n right by 1 each iteration to halve it.
+                    n := shr(1, n)
+                } {
+
+                    // Store x squared.
+                    xx := mul(x, x)
+
+                    // Round to the nearest number.
+                    xxRound := add(xx, half)
+
+                    // Revert if xx + half overflowed.
+                    if lt(xxRound, xx) {
+                        revert(0, 0)
+                    }
+
+                    // Set x to scaled xxRound.
+                    x := div(xxRound, scalar)
+                }
+            }
+            uint256 eg = gasleft();
+            z = sg - eg;
+    }
+}
+
+contract LibDemo14 {
+    struct ConduitProperties {
+        bytes32 key;
+        address owner;
+        address potentialOwner;
+        address[] channels;
+        mapping(address => uint256) channelIndexesPlusOne;
+    }
+
+    event OwnershipTransferred(
+        address indexed conduit,
+        address indexed previousOwner,
+        address indexed newOwner
+    );
+
+    mapping(address => ConduitProperties) internal _conduits;
+
+    function acceptOwnership1(address conduit) external {
+        if (msg.sender != _conduits[conduit].potentialOwner) {
+            // Revert, indicating that caller is not current potential owner.
+            
+        }
+        _conduits[conduit].potentialOwner = address(0);
+
+        // Emit an event indicating conduit ownership has been transferred.
+        emit OwnershipTransferred(conduit, _conduits[conduit].owner, msg.sender);
+
+        // Set the caller as the owner of the conduit.
+        _conduits[conduit].owner = msg.sender;
+    }
+
+    function acceptOwnership2(address conduit) external {        
+        ConduitProperties storage p = _conduits[conduit];
+        if (msg.sender != p.potentialOwner) {
+            // Revert, indicating that caller is not current potential owner.
+            
+        }
+        p.potentialOwner = address(0);
+
+        // Emit an event indicating conduit ownership has been transferred.
+        emit OwnershipTransferred(conduit, p.owner, msg.sender);
+
+        // Set the caller as the owner of the conduit.
+        p.owner = msg.sender;
+    }
+}

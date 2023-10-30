@@ -309,4 +309,68 @@ contract LibGasTest is GasMeasure {
         emit log_named_uint("gasUsage2", gasUsage2);  // 26551 gas
         emit log_named_uint("gasSaved", gasUsage1 - gasUsage2);  // 112 gas
     }
+
+    function test12() public {
+        LibDemo12 demo = new LibDemo12();
+        uint256 startGas = gasleft();
+        demo.test1();
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 1563 gas
+
+        startGas = gasleft();
+        demo.test1();
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 1560 gas
+
+        startGas = gasleft();
+        demo.test2();
+        endGas = gasleft();
+        uint256 gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2); // 1512 gas
+    }
+
+    function test13() public {
+        LibDemo13 demo = new LibDemo13();
+        uint256 startGas = gasleft();
+        demo.rpow1(2,2,1);
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 2273 gas
+
+        startGas = gasleft();
+        demo.rpow2(2,2,1);
+        endGas = gasleft();
+        uint256 gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2); // 2288 gas
+
+        startGas = gasleft();
+        demo.rpow1(2,2,1);
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 2270 gas
+    }
+
+    function test14() public {
+
+        LibDemo14 demo = new LibDemo14();
+        uint256 startGas = gasleft();
+        demo.acceptOwnership1(address(0xBEEF));
+        uint256 endGas = gasleft();
+        uint256 gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 25602 gas
+
+        startGas = gasleft();
+        demo.acceptOwnership2(address(0xBEEF));
+        endGas = gasleft();
+        uint256 gasUsage2 = startGas - endGas;
+        emit log_named_uint("gasUsage2", gasUsage2); // 1644 gas
+
+        startGas = gasleft();
+        demo.acceptOwnership1(address(0xBEEF));
+        endGas = gasleft();
+        gasUsage1 = startGas - endGas;
+        emit log_named_uint("gasUsage1", gasUsage1); // 1699 gas
+    }
 }

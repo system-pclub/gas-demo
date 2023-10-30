@@ -1,0 +1,582 @@
+    /* "Demo1.sol":1398:2572  contract DemoOp {... */
+  mstore(0x40, 0x80)
+    /* "Demo1.sol":1825:1884  constructor() {... */
+  callvalue
+  dup1
+  iszero
+  tag_1
+  jumpi
+  0x00
+  dup1
+  revert
+tag_1:
+  pop
+    /* "Demo1.sol":1849:1859  ownerOf[0] */
+  0x00
+  dup1
+  mstore
+    /* "Demo1.sol":1849:1856  ownerOf */
+  0x01
+    /* "Demo1.sol":1849:1859  ownerOf[0] */
+  0x20
+  mstore
+  0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49
+    /* "Demo1.sol":1849:1877  ownerOf[0] = address(0xBEEF) */
+  dup1
+  sload
+  not(sub(shl(0xa0, 0x01), 0x01))
+  and
+    /* "Demo1.sol":1870:1876  0xBEEF */
+  0xbeef
+    /* "Demo1.sol":1849:1877  ownerOf[0] = address(0xBEEF) */
+  or
+  swap1
+  sstore
+    /* "Demo1.sol":1398:2572  contract DemoOp {... */
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "Demo1.sol":1398:2572  contract DemoOp {... */
+      mstore(0x40, 0x80)
+      callvalue
+      dup1
+      iszero
+      tag_1
+      jumpi
+      0x00
+      dup1
+      revert
+    tag_1:
+      pop
+      jumpi(tag_2, lt(calldatasize, 0x04))
+      shr(0xe0, calldataload(0x00))
+      dup1
+      0x578bdc47
+      gt
+      tag_10
+      jumpi
+      dup1
+      0x578bdc47
+      eq
+      tag_6
+      jumpi
+      dup1
+      0x6352211e
+      eq
+      tag_7
+      jumpi
+      dup1
+      0x70a08231
+      eq
+      tag_8
+      jumpi
+      dup1
+      0xe30081a0
+      eq
+      tag_9
+      jumpi
+      0x00
+      dup1
+      revert
+    tag_10:
+      dup1
+      0x081812fc
+      eq
+      tag_3
+      jumpi
+      dup1
+      0x312e5a61
+      eq
+      tag_4
+      jumpi
+      dup1
+      0x4c31b4f2
+      eq
+      tag_5
+      jumpi
+    tag_2:
+      0x00
+      dup1
+      revert
+        /* "Demo1.sol":1683:1729  mapping(uint256 => address) public getApproved */
+    tag_3:
+      tag_11
+      tag_12
+      calldatasize
+      0x04
+      tag_13
+      jump	// in
+    tag_12:
+      mstore(0x20, 0x02)
+      0x00
+      swap1
+      dup2
+      mstore
+      0x40
+      swap1
+      keccak256
+      sload
+      sub(shl(0xa0, 0x01), 0x01)
+      and
+      dup2
+      jump
+    tag_11:
+      mload(0x40)
+      sub(shl(0xa0, 0x01), 0x01)
+        /* "#utility.yul":363:395   */
+      swap1
+      swap2
+      and
+        /* "#utility.yul":345:396   */
+      dup2
+      mstore
+        /* "#utility.yul":333:335   */
+      0x20
+        /* "#utility.yul":318:336   */
+      add
+        /* "Demo1.sol":1683:1729  mapping(uint256 => address) public getApproved */
+    tag_15:
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      return
+        /* "Demo1.sol":2523:2570  function transfer1(address add) public {... */
+    tag_4:
+      tag_17
+      tag_18
+      calldatasize
+      0x04
+      tag_19
+      jump	// in
+    tag_18:
+      pop
+      jump
+    tag_17:
+      stop
+        /* "Demo1.sol":2006:2372  function burnUseCached1(uint256 id) public {... */
+    tag_5:
+      tag_17
+      tag_22
+      calldatasize
+      0x04
+      tag_13
+      jump	// in
+    tag_22:
+      tag_23
+      jump	// in
+        /* "Demo1.sol":2378:2517  function test7(uint bb) public {... */
+    tag_6:
+      tag_17
+      tag_25
+      calldatasize
+      0x04
+      tag_13
+      jump	// in
+    tag_25:
+      tag_26
+      jump	// in
+        /* "Demo1.sol":1635:1677  mapping(uint256 => address) public ownerOf */
+    tag_7:
+      tag_11
+      tag_28
+      calldatasize
+      0x04
+      tag_13
+      jump	// in
+    tag_28:
+      mstore(0x20, 0x01)
+      0x00
+      swap1
+      dup2
+      mstore
+      0x40
+      swap1
+      keccak256
+      sload
+      sub(shl(0xa0, 0x01), 0x01)
+      and
+      dup2
+      jump
+        /* "Demo1.sol":1585:1629  mapping(address => uint256) public balanceOf */
+    tag_8:
+      tag_31
+      tag_32
+      calldatasize
+      0x04
+      tag_19
+      jump	// in
+    tag_32:
+      0x00
+      0x20
+      dup2
+      swap1
+      mstore
+      swap1
+      dup2
+      mstore
+      0x40
+      swap1
+      keccak256
+      sload
+      dup2
+      jump
+    tag_31:
+      mload(0x40)
+        /* "#utility.yul":844:869   */
+      swap1
+      dup2
+      mstore
+        /* "#utility.yul":832:834   */
+      0x20
+        /* "#utility.yul":817:835   */
+      add
+        /* "Demo1.sol":1585:1629  mapping(address => uint256) public balanceOf */
+      tag_15
+        /* "#utility.yul":698:875   */
+      jump
+        /* "Demo1.sol":1890:1961  function setAddress(address _a) public {... */
+    tag_9:
+      tag_17
+      tag_37
+      calldatasize
+      0x04
+      tag_19
+      jump	// in
+    tag_37:
+        /* "Demo1.sol":1939:1949  ownerOf[0] */
+      0x00
+      dup1
+      mstore
+        /* "Demo1.sol":1939:1946  ownerOf */
+      0x01
+        /* "Demo1.sol":1939:1949  ownerOf[0] */
+      0x20
+      mstore
+      0xa6eef7e35abe7026729641147f7915573c7e97b47efa546f5f6e3230263bcb49
+        /* "Demo1.sol":1939:1954  ownerOf[0] = _a */
+      dup1
+      sload
+      not(sub(shl(0xa0, 0x01), 0x01))
+      and
+      sub(shl(0xa0, 0x01), 0x01)
+      swap3
+      swap1
+      swap3
+      and
+      swap2
+      swap1
+      swap2
+      or
+      swap1
+      sstore
+        /* "Demo1.sol":1890:1961  function setAddress(address _a) public {... */
+      jump
+        /* "Demo1.sol":2006:2372  function burnUseCached1(uint256 id) public {... */
+    tag_23:
+        /* "Demo1.sol":2059:2072  address owner */
+      0x00
+        /* "Demo1.sol":2075:2086  ownerOf[id] */
+      dup2
+      dup2
+      mstore
+        /* "Demo1.sol":2075:2082  ownerOf */
+      0x01
+        /* "Demo1.sol":2075:2086  ownerOf[id] */
+      0x20
+      mstore
+      0x40
+      swap1
+      keccak256
+      sload
+      sub(shl(0xa0, 0x01), 0x01)
+      and
+      dup1
+        /* "Demo1.sol":2097:2139  require(owner != address(0), "NOT_MINTED") */
+      tag_41
+      jumpi
+      mload(0x40)
+      shl(0xe5, 0x461bcd)
+      dup2
+      mstore
+        /* "#utility.yul":1082:1084   */
+      0x20
+        /* "Demo1.sol":2097:2139  require(owner != address(0), "NOT_MINTED") */
+      0x04
+      dup3
+      add
+        /* "#utility.yul":1064:1085   */
+      mstore
+        /* "#utility.yul":1121:1123   */
+      0x0a
+        /* "#utility.yul":1101:1119   */
+      0x24
+      dup3
+      add
+        /* "#utility.yul":1094:1124   */
+      mstore
+      shl(0xb2, 0x1393d517d35253951151)
+        /* "#utility.yul":1140:1158   */
+      0x44
+      dup3
+      add
+        /* "#utility.yul":1133:1173   */
+      mstore
+        /* "#utility.yul":1190:1208   */
+      0x64
+      add
+        /* "Demo1.sol":2097:2139  require(owner != address(0), "NOT_MINTED") */
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      revert
+    tag_41:
+      sub(shl(0xa0, 0x01), 0x01)
+        /* "Demo1.sol":2229:2245  balanceOf[owner] */
+      dup2
+      and
+        /* "Demo1.sol":2229:2238  balanceOf */
+      0x00
+        /* "Demo1.sol":2229:2245  balanceOf[owner] */
+      dup2
+      dup2
+      mstore
+      0x20
+      dup2
+      dup2
+      mstore
+      0x40
+      dup1
+      dup4
+      keccak256
+        /* "Demo1.sol":2229:2247  balanceOf[owner]-- */
+      dup1
+      sload
+      not(0x00)
+      add
+      swap1
+      sstore
+        /* "Demo1.sol":2275:2286  ownerOf[id] */
+      dup6
+      dup4
+      mstore
+      0x01
+      dup3
+      mstore
+      dup1
+      dup4
+      keccak256
+        /* "Demo1.sol":2268:2286  delete ownerOf[id] */
+      dup1
+      sload
+      not(sub(shl(0xa0, 0x01), 0x01))
+      swap1
+      dup2
+      and
+      swap1
+      swap2
+      sstore
+        /* "Demo1.sol":2303:2314  getApproved */
+      0x02
+        /* "Demo1.sol":2303:2318  getApproved[id] */
+      dup4
+      mstore
+      dup2
+      dup5
+      keccak256
+        /* "Demo1.sol":2296:2318  delete getApproved[id] */
+      dup1
+      sload
+      swap1
+      swap2
+      and
+      swap1
+      sstore
+        /* "Demo1.sol":2334:2365  Transfer(owner, address(0), id) */
+      mload
+        /* "#utility.yul":844:869   */
+      dup6
+      dup2
+      mstore
+        /* "Demo1.sol":2229:2238  balanceOf */
+      swap2
+      swap3
+        /* "Demo1.sol":2229:2245  balanceOf[owner] */
+      swap2
+        /* "Demo1.sol":2334:2365  Transfer(owner, address(0), id) */
+      0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
+      swap2
+        /* "#utility.yul":817:835   */
+      add
+        /* "Demo1.sol":2334:2365  Transfer(owner, address(0), id) */
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      log3
+        /* "Demo1.sol":2049:2372  {... */
+      pop
+        /* "Demo1.sol":2006:2372  function burnUseCached1(uint256 id) public {... */
+      pop
+      jump	// out
+        /* "Demo1.sol":2378:2517  function test7(uint bb) public {... */
+    tag_26:
+        /* "Demo1.sol":2419:2423  a112 */
+      0x03
+        /* "Demo1.sol":2419:2437  a112 = uint112(bb) */
+      dup1
+      sload
+      not(sub(shl(0xe0, 0x01), 0x01))
+        /* "Demo1.sol":2447:2465  b112 = uint112(bb) */
+      and
+        /* "Demo1.sol":2419:2437  a112 = uint112(bb) */
+      0xffffffffffffffffffffffffffff
+      dup4
+      and
+        /* "Demo1.sol":2447:2465  b112 = uint112(bb) */
+      swap1
+      dup2
+      or
+      shl(0x70, 0x01)
+      dup3
+      mul
+      or
+      swap1
+      swap2
+      sstore
+        /* "Demo1.sol":2480:2510  Sync(uint112(bb), uint112(bb)) */
+      0x40
+      dup1
+      mload
+        /* "#utility.yul":1442:1476   */
+      dup3
+      dup2
+      mstore
+        /* "#utility.yul":1507:1509   */
+      0x20
+        /* "#utility.yul":1492:1510   */
+      dup2
+      add
+        /* "#utility.yul":1485:1528   */
+      swap3
+      swap1
+      swap3
+      mstore
+        /* "Demo1.sol":2480:2510  Sync(uint112(bb), uint112(bb)) */
+      0x1c411e9a96e071241c2f21f7726b17ae89e3cab4c78be50e062b03a9fffbbad1
+      swap2
+        /* "#utility.yul":1366:1384   */
+      add
+        /* "Demo1.sol":2480:2510  Sync(uint112(bb), uint112(bb)) */
+      mload(0x40)
+      dup1
+      swap2
+      sub
+      swap1
+      log1
+        /* "Demo1.sol":2378:2517  function test7(uint bb) public {... */
+      pop
+      jump	// out
+        /* "#utility.yul":14:194   */
+    tag_13:
+        /* "#utility.yul":73:79   */
+      0x00
+        /* "#utility.yul":126:128   */
+      0x20
+        /* "#utility.yul":114:123   */
+      dup3
+        /* "#utility.yul":105:112   */
+      dup5
+        /* "#utility.yul":101:124   */
+      sub
+        /* "#utility.yul":97:129   */
+      slt
+        /* "#utility.yul":94:146   */
+      iszero
+      tag_51
+      jumpi
+        /* "#utility.yul":142:143   */
+      0x00
+        /* "#utility.yul":139:140   */
+      dup1
+        /* "#utility.yul":132:144   */
+      revert
+        /* "#utility.yul":94:146   */
+    tag_51:
+      pop
+        /* "#utility.yul":165:188   */
+      calldataload
+      swap2
+        /* "#utility.yul":14:194   */
+      swap1
+      pop
+      jump	// out
+        /* "#utility.yul":407:693   */
+    tag_19:
+        /* "#utility.yul":466:472   */
+      0x00
+        /* "#utility.yul":519:521   */
+      0x20
+        /* "#utility.yul":507:516   */
+      dup3
+        /* "#utility.yul":498:505   */
+      dup5
+        /* "#utility.yul":494:517   */
+      sub
+        /* "#utility.yul":490:522   */
+      slt
+        /* "#utility.yul":487:539   */
+      iszero
+      tag_54
+      jumpi
+        /* "#utility.yul":535:536   */
+      0x00
+        /* "#utility.yul":532:533   */
+      dup1
+        /* "#utility.yul":525:537   */
+      revert
+        /* "#utility.yul":487:539   */
+    tag_54:
+        /* "#utility.yul":561:584   */
+      dup2
+      calldataload
+      sub(shl(0xa0, 0x01), 0x01)
+        /* "#utility.yul":613:644   */
+      dup2
+      and
+        /* "#utility.yul":603:645   */
+      dup2
+      eq
+        /* "#utility.yul":593:663   */
+      tag_55
+      jumpi
+        /* "#utility.yul":659:660   */
+      0x00
+        /* "#utility.yul":656:657   */
+      dup1
+        /* "#utility.yul":649:661   */
+      revert
+        /* "#utility.yul":593:663   */
+    tag_55:
+        /* "#utility.yul":682:687   */
+      swap4
+        /* "#utility.yul":407:693   */
+      swap3
+      pop
+      pop
+      pop
+      jump	// out
+
+    auxdata: 0xa26469706673582212209f32e91ae423de15dd54e2331973e6ccf19dc982b9170ac4c4f7332673fd038264736f6c634300080f0033
+}
